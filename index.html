@@ -285,45 +285,135 @@ buttons.forEach(btn => {
       });
     }
 
-    if(type === "members") {
-      const members = [
-        {id:72831, insigna:"D-SUP", name:"Brown Allanon", rank:"Supervisor", contact:"936-9788", status:"Activ", promovare:"28/04/2025", intrare:"28/04/2025"},
-        {id:62402, insigna:"D-001", name:"West Lea", rank:"Inspector-General", contact:"075-8915", status:"Activ", promovare:"17/10/2025", intrare:"30/07/2025"},
-        {id:20976, insigna:"D-002", name:"Paduraru Tudor", rank:"Inspector-Şef", contact:"172-0976", status:"Activ", promovare:"17/10/2025", intrare:"01/08/2025"},
-        {id:116530, insigna:"D-004", name:"Marius Mark", rank:"Inspector", contact:"828-5072", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-        {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
-        {id:121301, insigna:"D-006", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Activ", promovare:"-", intrare:"25/09/2025"},
-        {id:76050, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-        {id:63331, insigna:"D-010", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"},
-        {id:52636, insigna:"D-011", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
-        {id:91563, insigna:"D-012", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
-        {id:61494, insigna:"D-013", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Activ", promovare:"-", intrare:"13/10/2025"},
-        {id:75957, insigna:"D-016", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Activ", promovare:"-", intrare:"28/08/2025"}
-      ];
+if (type === "members") {
+  const members = [
+    {id:72831, insigna:"D-SUP", name:"Brown Allanon", rank:"Supervisor", contact:"936-9788", status:"Activ", promovare:"28/04/2025", intrare:"28/04/2025"},
+    {id:62402, insigna:"D-001", name:"West Lea", rank:"Inspector-General", contact:"075-8915", status:"Activ", promovare:"17/10/2025", intrare:"30/07/2025"},
+    {id:20976, insigna:"D-002", name:"Paduraru Tudor", rank:"Inspector-Şef", contact:"172-0976", status:"Activ", promovare:"17/10/2025", intrare:"01/08/2025"},
+    {id:116530, insigna:"D-004", name:"Marius Mark", rank:"Inspector", contact:"828-5072", status:"Activ", promovare:"-", intrare:"01/08/2025"},
+    {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
+    {id:121301, insigna:"D-006", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Activ", promovare:"-", intrare:"25/09/2025"},
+    {id:76050, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
+    {id:63331, insigna:"D-010", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"},
+    {id:52636, insigna:"D-011", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
+    {id:91563, insigna:"D-012", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
+    {id:61494, insigna:"D-013", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Activ", promovare:"-", intrare:"13/10/2025"},
+    {id:75957, insigna:"D-016", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Activ", promovare:"-", intrare:"28/08/2025"}
+  ];
 
-      content.innerHTML = "";
-      members.forEach(m => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <h3>${m.name}</h3>
-          <p>Insigna: ${m.insigna}</p>
-          <p>Rank: ${m.rank}</p>
-          <p>Contact: ${m.contact}</p>
-          <p>Promovare: ${m.promovare}</p>
-          <p>Intrare: ${m.intrare}</p>
-          <span class="badge ${m.status.toLowerCase()}">${m.status}</span>
-        `;
-        content.appendChild(card);
-      });
+  content.innerHTML = "";
+  members.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    let imgSrc = "DSLS.png"; 
+    if (m.rank === "Inspector-Şef") {
+      imgSrc = "inspector-sef.png";
+    }
+    if (m.rank === "Inspector-General") {
+      imgSrc = "inspector-general.png";
     }
 
-    if(type === "afaceri") {
+    card.innerHTML = `
+      <img src="${imgSrc}" alt="Poza ${m.name}" style="width:60px; height:60px; border-radius:50%; float:left; margin-right:15px;">
+      <h3>${m.name}</h3>
+      <p>Insigna: ${m.insigna}</p>
+      <p>Rank: ${m.rank}</p>
+      <p>Contact: ${m.contact}</p>
+      <p>Promovare: ${m.promovare}</p>
+      <p>Intrare: ${m.intrare}</p>
+      <span class="badge ${m.status.toLowerCase()}">${m.status}</span>
+      <div style="clear:both;"></div>
+    `;
+    content.appendChild(card);
+  });
+}
+
+
+ if(type === "afaceri") {
       const businesses = [
         { numar: "LOC-2", tip: "Gunshop", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
         { numar: "LOC-4", tip: "Salon Tatuaje", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-5", tip: "Frizerie", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" }
-        // ... restul afacerilor
+        { numar: "LOC-5", tip: "Frizerie", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-8", tip: "Magazin Haine", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-9", tip: "Service", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-12A", tip: "Service", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-16", tip: "Frizerie", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-17", tip: "Salon Tatuaje", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-18", tip: "Gunshop", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-21A", tip: "Club / Bar", locatie: "Yellowjack Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-28", tip: "Magazin Haine", locatie: "Grapeseed", status: "Închis", ultimControl: "15/12/2025" },
+        { numar: "LOC-30", tip: "Salon Tatuaje", locatie: "Great Ocean HGW", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-30A", tip: "Gunshop", locatie: "Great Ocean HGW", status: "Închis", ultimControl: "15/12/2025" },
+        { numar: "LOC-31", tip: "Magazin Haine", locatie: "Great Ocean HGW", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-43", tip: "Gunshop", locatie: "Autostrada DIICOT", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-44", tip: "Magazin Haine", locatie: "Biserica Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-45", tip: "Gunshop", locatie: "Biserica Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-47", tip: "Magazin Haine", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-48", tip: "Service", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-52", tip: "Magazin Haine", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-56", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-57", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-58", tip: "Salon Tatuaje", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-59", tip: "Magazin Haine", locatie: "FplayT Mall / Et. 1", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-60", tip: "Magazin Haine", locatie: "FplayT Mall / Parter", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-61", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-64", tip: "Service", locatie: "Port Nou", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-65", tip: "Service", locatie: "Port Nou / Barci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-67", tip: "Service", locatie: "Port Nou", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-69", tip: "Service", locatie: "Groove / Bennys", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-71A", tip: "Gunshop", locatie: "Weazel", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-74", tip: "Magazin Haine", locatie: "Spital Viceroy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-75", tip: "Salon Tatuaje", locatie: "Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-76", tip: "Magazin Haine", locatie: "Zona FplayT Residence", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-79", tip: "Gunshop", locatie: "Zona FplayT Residence", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-80", tip: "Club / Bar", locatie: "Bahamas Club", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-81", tip: "Club / Bar", locatie: "Paradise Club", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-82", tip: "Magazin Haine", locatie: "Nord Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-85", tip: "Frizerie", locatie: "Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-86", tip: "Service", locatie: "Circuit Karturi Aeroport", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-90", tip: "Club / Bar", locatie: "Bar Mirror ( la strada )", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-91", tip: "Frizerie", locatie: "Mirror", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-92", tip: "Club / Bar", locatie: "Bar Mirror ( la lac )", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-93", tip: "Service", locatie: "Mirror", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-95", tip: "Gunshop", locatie: "in spate sectie centrala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-97", tip: "Service", locatie: "in spate sectie centrala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-99", tip: "Magazin Haine", locatie: "Spre Job Sofer Autobuz", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-100", tip: "Magazin Haine", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-101", tip: "Frizerie", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-102", tip: "Gunshop", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-102A", tip: "Altele", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-103", tip: "Salon Tatuaje", locatie: "Pacific", status: "Închis", ultimControl: "15/12/2025" },
+        { numar: "LOC-105", tip: "Magazin Haine", locatie: "Rockford Plaza", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-106", tip: "Service", locatie: "LS Customs", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-107", tip: "Magazin Haine", locatie: "Zona Biju", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-108", tip: "Club / Bar", locatie: "Tequi-la-la", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-110", tip: "Salon Tatuaje", locatie: "Amarilo", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-111", tip: "Gunshop", locatie: "Zona industriala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-114", tip: "Spalatorie Auto", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-115", tip: "Club / Bar", locatie: "Salieris", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-116", tip: "Service", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-118", tip: "Club / Bar", locatie: "Vanilla", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-119", tip: "Club / Bar", locatie: "Canale LS - El Burro", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-121", tip: "Spalatorie Auto", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-122", tip: "Magazin Haine", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-125", tip: "Frizerie", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-126", tip: "Service", locatie: "Aeroport", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-128", tip: "Gunshop", locatie: "Flecca Centrala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-129", tip: "Gunshop", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-130", tip: "Frizerie", locatie: "Zona Biju", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-131", tip: "Cladire Birouri", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-132", tip: "Altele", locatie: "Zona Casino", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-133", tip: "Zona Comerciala", locatie: "Grapeseed", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-135", tip: "Altele", locatie: "Aeroport Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-137", tip: "Altele", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-141", tip: "Service", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-144", tip: "Magazin Haine", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-145", tip: "Magazin Haine", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-149", tip: "Service", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-150", tip: "Salon Tatuaje", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-156", tip: "Service", locatie: "Roxwood Est", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-158", tip: "Magazin Haine", locatie: "Vinewood / Alta", status: "Deschis", ultimControl: "15/12/2025" }
       ];
 
       let table = `<table>
