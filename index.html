@@ -42,7 +42,6 @@ header img {
 header img:hover {
   transform: scale(1.1);
 }
-#reset-pass-btn { margin-left:10px; padding:8px 12px; border-radius:8px; border:none; background:#ff6b6b; color:#fff; cursor:pointer; font-weight:600; }
 
 /* NAV */
 nav {
@@ -177,7 +176,6 @@ main {
   <img src="FP.png" alt="Logo Fplayt">
   <img src="eclipse-fpt.png" alt="Logo FPT MEDICI">
   <img src="DSLS.png" alt="Logo DSLS">
-  <button id="reset-pass-btn" title="Resetează parola">Resetare parole</button>
 </header>
 
 <nav>
@@ -201,14 +199,6 @@ const pin = document.getElementById('password-input');
 const pbtn = document.getElementById('password-btn');
 const err = document.getElementById('error-msg');
 const pscreenText = document.getElementById('pscreen-text');
-const resetBtn = document.getElementById('reset-pass-btn');
-
-resetBtn.addEventListener('click', ()=>{
-  localStorage.removeItem('myPassword'); 
-  storedPass=null; 
-  initGenerateAndSendCode(); 
-  alert("Parola a fost resetată. Cod nou trimis la webhook.");
-});
 
 let storedPass = localStorage.getItem('myPassword');
 let secretKey = null;
@@ -250,13 +240,6 @@ function initGenerateAndSendCode(){
 }
 
 initGenerateAndSendCode();
-
-resetBtn.addEventListener('click', ()=>{
-  localStorage.removeItem('myPassword'); 
-  storedPass=null; 
-  initGenerateAndSendCode(); 
-  alert("Parola a fost resetată. Cod nou trimis la webhook.");
-});
 
 pbtn.addEventListener('click', ()=>{
   const val = pin.value.trim();
@@ -354,7 +337,7 @@ buttons.forEach(btn => {
       });
     }
 
-if(type === "afaceri") {
+    if(type === "afaceri") {
       const businesses = [
         { numar: "LOC-2", tip: "Gunshop", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
         { numar: "LOC-4", tip: "Salon Tatuaje", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
