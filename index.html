@@ -284,6 +284,7 @@ main {
 
 
 
+
 <script>
 // === PROTECȚIE PAROLĂ CU CUVÂNT CHEIE ȘI WEBHOOK ===
 const pscreen = document.getElementById('password-screen');
@@ -294,6 +295,19 @@ const err = document.getElementById('error-msg');
 const secretKey = "Medic123"; // cuvântul cheie
 let storedPass = localStorage.getItem('myPassword');
 let step = 0; // 0 = introducere cuvânt cheie, 1 = creare parolă
+
+// === RESET AUTOMAT LA 40 SECUNDE ===
+setInterval(() => {
+  localStorage.removeItem('myPassword'); // șterge parola stocată
+  step = 0; // readuce la etapa cu cuvântul cheie
+  pin.value = ""; 
+  pscreen.style.display = "flex"; // arată ecranul de parolă
+  pscreen.querySelector('p').textContent = "Introduceți cuvântul cheie pentru a crea parola:";
+  pbtn.textContent = "Trimite";
+  err.textContent = "";
+  console.log("Parola a fost resetată automat!"); // doar pentru test
+}, 40000); // 40.000 ms = 40 secunde
+
 
 if(!storedPass) {
   pscreen.querySelector('p').textContent = "Introduceți cuvântul cheie pentru a crea parola:";
@@ -348,6 +362,7 @@ pbtn.addEventListener('click', () => {
       err.textContent = "Parola greșită!";
     }
   }
+  
 });
 
 pin.addEventListener('keypress', e => {
@@ -355,14 +370,6 @@ pin.addEventListener('keypress', e => {
 });
 </script>
 
-<button id="reset-pass" style="position:fixed;top:10px;right:10px;">Resetează Parola</button>
-
-<script>
-document.getElementById('reset-pass').addEventListener('click', () => {
-    localStorage.removeItem('myPassword');
-    location.reload(); // reîncarcă pagina și ecranul de parolă apare din nou
-});
-</script>
 
 
 <!-- === CODUL TĂU ORIGINAL === -->
