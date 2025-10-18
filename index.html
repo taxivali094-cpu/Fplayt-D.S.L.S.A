@@ -355,6 +355,15 @@ pin.addEventListener('keypress', e => {
 });
 </script>
 
+<button id="reset-pass" style="position:fixed;top:10px;right:10px;">Resetează Parola</button>
+
+<script>
+document.getElementById('reset-pass').addEventListener('click', () => {
+    localStorage.removeItem('myPassword');
+    location.reload(); // reîncarcă pagina și ecranul de parolă apare din nou
+});
+</script>
+
 
 <!-- === CODUL TĂU ORIGINAL === -->
 <script>
