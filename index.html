@@ -332,35 +332,116 @@ buttons.forEach(btn => {
 
     if(type === "afaceri") {
       const businesses = [
-        {numar:"LOC-1", tip:"Club De Noapte", locatie:"Paleto", status:"Închis"},
-        {numar:"LOC-2", tip:"Club De Noapte", locatie:"Los Santos", status:"Deschis"},
-        {numar:"LOC-3", tip:"Club De Noapte", locatie:"Los Santos", status:"Închis"},
-        {numar:"LOC-4", tip:"Club De Noapte", locatie:"Sandy Shores", status:"Deschis"},
-        {numar:"LOC-5", tip:"Club De Noapte", locatie:"RoxWood", status:"Închis"},
+        { numar: "LOC-2", tip: "Gunshop", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-4", tip: "Salon Tatuaje", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-5", tip: "Frizerie", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-8", tip: "Magazin Haine", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-9", tip: "Service", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-12A", tip: "Service", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-16", tip: "Frizerie", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-17", tip: "Salon Tatuaje", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-18", tip: "Gunshop", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-21A", tip: "Club / Bar", locatie: "Yellowjack Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-28", tip: "Magazin Haine", locatie: "Grapeseed", status: "Închis", ultimControl: "15/12/2025" },
+        { numar: "LOC-30", tip: "Salon Tatuaje", locatie: "Great Ocean HGW", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-30A", tip: "Gunshop", locatie: "Great Ocean HGW", status: "Închis", ultimControl: "15/12/2025" },
+        { numar: "LOC-31", tip: "Magazin Haine", locatie: "Great Ocean HGW", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-43", tip: "Gunshop", locatie: "Autostrada DIICOT", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-44", tip: "Magazin Haine", locatie: "Biserica Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-45", tip: "Gunshop", locatie: "Biserica Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-47", tip: "Magazin Haine", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-48", tip: "Service", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-52", tip: "Magazin Haine", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-56", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-57", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-58", tip: "Salon Tatuaje", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-59", tip: "Magazin Haine", locatie: "FplayT Mall / Et. 1", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-60", tip: "Magazin Haine", locatie: "FplayT Mall / Parter", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-61", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-64", tip: "Service", locatie: "Port Nou", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-65", tip: "Service", locatie: "Port Nou / Barci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-67", tip: "Service", locatie: "Port Nou", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-69", tip: "Service", locatie: "Groove / Bennys", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-71A", tip: "Gunshop", locatie: "Weazel", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-74", tip: "Magazin Haine", locatie: "Spital Viceroy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-75", tip: "Salon Tatuaje", locatie: "Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-76", tip: "Magazin Haine", locatie: "Zona FplayT Residence", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-79", tip: "Gunshop", locatie: "Zona FplayT Residence", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-80", tip: "Club / Bar", locatie: "Bahamas Club", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-81", tip: "Club / Bar", locatie: "Paradise Club", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-82", tip: "Magazin Haine", locatie: "Nord Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-85", tip: "Frizerie", locatie: "Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-86", tip: "Service", locatie: "Circuit Karturi Aeroport", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-90", tip: "Club / Bar", locatie: "Bar Mirror ( la strada )", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-91", tip: "Frizerie", locatie: "Mirror", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-92", tip: "Club / Bar", locatie: "Bar Mirror ( la lac )", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-93", tip: "Service", locatie: "Mirror", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-95", tip: "Gunshop", locatie: "in spate sectie centrala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-97", tip: "Service", locatie: "in spate sectie centrala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-99", tip: "Magazin Haine", locatie: "Spre Job Sofer Autobuz", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-100", tip: "Magazin Haine", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-101", tip: "Frizerie", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-102", tip: "Gunshop", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-102A", tip: "Altele", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-103", tip: "Salon Tatuaje", locatie: "Pacific", status: "Închis", ultimControl: "15/12/2025" },
+        { numar: "LOC-105", tip: "Magazin Haine", locatie: "Rockford Plaza", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-106", tip: "Service", locatie: "LS Customs", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-107", tip: "Magazin Haine", locatie: "Zona Biju", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-108", tip: "Club / Bar", locatie: "Tequi-la-la", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-110", tip: "Salon Tatuaje", locatie: "Amarilo", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-111", tip: "Gunshop", locatie: "Zona industriala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-114", tip: "Spalatorie Auto", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-115", tip: "Club / Bar", locatie: "Salieris", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-116", tip: "Service", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-118", tip: "Club / Bar", locatie: "Vanilla", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-119", tip: "Club / Bar", locatie: "Canale LS - El Burro", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-121", tip: "Spalatorie Auto", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-122", tip: "Magazin Haine", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-125", tip: "Frizerie", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-126", tip: "Service", locatie: "Aeroport", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-128", tip: "Gunshop", locatie: "Flecca Centrala", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-129", tip: "Gunshop", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-130", tip: "Frizerie", locatie: "Zona Biju", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-131", tip: "Cladire Birouri", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-132", tip: "Altele", locatie: "Zona Casino", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-133", tip: "Zona Comerciala", locatie: "Grapeseed", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-135", tip: "Altele", locatie: "Aeroport Sandy", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-137", tip: "Altele", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-141", tip: "Service", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-144", tip: "Magazin Haine", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-145", tip: "Magazin Haine", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-149", tip: "Service", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-150", tip: "Salon Tatuaje", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-156", tip: "Service", locatie: "Roxwood Est", status: "Deschis", ultimControl: "15/12/2025" },
+        { numar: "LOC-158", tip: "Magazin Haine", locatie: "Vinewood / Alta", status: "Deschis", ultimControl: "15/12/2025" }
       ];
 
-      let table = `<table>
-        <tr>
-          <th>Număr Locație</th>
-          <th>Tipul</th>
-          <th>Locația</th>
-          <th>Status</th>
-        </tr>`;
 
-      businesses.forEach(biz => {
-        let statusClass = biz.status.toLowerCase() === "închis" ? "status-inchis" : "status-deschis";
-        table += `
-        <tr>
-          <td>${biz.numar}</td>
-          <td>${biz.tip}</td>
-          <td>${biz.locatie}</td>
-          <td class="${statusClass}">${biz.status}</td>
-        </tr>`;
-      });
+  let table = `<table>
+    <tr>
+      <th>Număr Locație</th>
+      <th>Tipul</th>
+      <th>Locația</th>
+      <th>Ultimul Control</th>
+      <th>Status</th>
+    </tr>`;
 
-      table += `</table>`;
-      content.innerHTML = table;
-    }
+  businesses.forEach(biz => {
+    let statusClass = biz.status.toLowerCase() === "închis" ? "status-inchis" : "status-deschis";
+    table += `
+    <tr>
+      <td>${biz.numar}</td>
+      <td>${biz.tip}</td>
+      <td>${biz.locatie}</td>
+      <td>${biz.ultimControl}</td>
+      <td class="${statusClass}">${biz.status}</td>
+    </tr>`;
+  });
+
+  table += `</table>`;
+  content.innerHTML = table;
+}
+
 
   });
 });
