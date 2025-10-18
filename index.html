@@ -4,161 +4,281 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghid D.S.L.S. Fplayt</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 body {
-  background-color: #0a1a33;
-  color: #eee;
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #0d1b3a);
+  color: #f0f0f0;
 }
 
+/* Header */
 header {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 12px;
-  background-color: #0a1a33;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
 }
 
 header img {
-  height: 50px;
+  height: 60px;
   margin: 0 20px;
+  transition: transform 0.3s;
 }
 
+header img:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation */
 nav {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  padding: 12px;
   flex-wrap: wrap;
-  background-color: #0a1a33;
+  gap: 15px;
+  padding: 15px 0;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(5px);
 }
 
 .category-btn {
-  padding: 10px 18px;
+  padding: 12px 22px;
   border: none;
-  border-radius: 10px;
+  border-radius: 45px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
+  background: #1e2a50;
+  color: #f0f0f0;
   transition: 0.3s;
-  background-color: #222;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.category-btn:hover, .category-btn.active {
+  background: #1a75ff;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(26,117,255,0.6);
+}
+
+/* Main container */
+main {
+  padding: 30px 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  min-height: 300px;
+}
+
+/* Member cards */
+.card {
+  background: linear-gradient(135deg, #001f4d, #003366);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  padding: 20px;
+  width: 260px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(26,117,255,0.6);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #1a75ff;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 14px;
   color: #eee;
 }
 
-.category-btn.active, .category-btn:hover {
-  background-color: #1a75ff;
-  color: #fff;
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 6px;
 }
 
-main {
-  padding: 24px;
-  font-size: 16px;
-  overflow-x: auto;
+.badge.activ {
+  background-color: rgba(0, 255, 0, 0.85);
+  color: #000;
+}
+
+.badge.inactiv {
+  background-color: rgba(255, 215, 0, 0.85);
+  color: #000;
+}
+
+/* Images grid: 4 per row */
+#content {
   display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   justify-content: center;
 }
 
+#content img {
+  width: calc(25% - 15px);
+  height: 150px; /* înălțime fixă mai mică */
+  object-fit: cover; /* păstrează proporțiile și taie excesul */
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+#content img:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 10px 25px rgba(26,117,255,0.6); */
+}
+
+/* Table for businesses */
 #content table {
   border-collapse: separate; 
   border-spacing: 0;
   width: 100%;
-  max-width: 1200px;
-  border-radius: 20px;
+  max-width: 900px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   background: linear-gradient(145deg, #001f4d, #003366);
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
+  color: #eee;
 }
 
 #content th {
   background: linear-gradient(135deg, #004080, #0066cc);
   color: #fff;
-  padding: 14px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 #content td {
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 12px;
-  color: #eee;
+  padding: 10px;
 }
 
-td.status-activ {
-  background-color: rgba(0, 255, 0, 0.8);
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: 2px 6px;
-  font-size: 12px;
-}
-
-td.status-inactiv {
-  background-color: rgba(255, 255, 0, 0.8);
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-td.status-inchis,
-td.status-deschis {
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-align: center;
-  color: #000;
-  padding: 6px 8px;
-  width: 110px;
-  margin: 4px 0;
-}
-
-td.status-inchis {
+.status-inchis {
   background-color: rgba(255, 0, 0, 0.85);
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 6px 8px;
 }
 
-td.status-deschis {
+.status-deschis {
   background-color: rgba(0, 255, 0, 0.85);
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 6px 8px;
 }
 
-#content {
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 1000;
 }
 
-#content img {
-  width: auto;
-  max-width: 150px;
-  margin: 6px;
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+#lightbox.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  #content img {
+    width: calc(33.33% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  #content img {
+    width: calc(50% - 15px);
+  }
+  .card {
+    width: 90%;
+  }
+  #content table {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #content img {
+    width: 100%;
+  }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="FP.png" alt="Logo Centru">
+  <img src="FP.png" alt="Logo Fplayt">
+  <img src="eclipse-fpt.png" alt="Logo FPT MEDICI">
+  <img src="DSLS.png" alt="Logo DSLS">
 </header>
 
 <nav>
   <button class="category-btn" data-type="members">Membrii D.S.L.S</button> 
   <button class="category-btn" data-type="images" data-images="loc.png,loc2.png,loc4.png,loc5.png,loc6.png,loc7.png,loc8.png,loc9.png,loc10.png,loc11.png,loc12.png,loc13.png,loc14.png,loc15.png,loc16.png,loc17.png,loc18.png,loc20.png,loc21.png,loc22.png,loc23.png,loc24.png">D.S.L.S POZE</button>
-  <button class="category-btn" data-type="afaceri">Afaceri Închise</button>
+  <button class="category-btn" data-type="afaceri">Afaceri</button>
 </nav>
 
 <main id="content">
   Apasă pe o categorie ca să vezi informațiile.
 </main>
 
+<!-- Lightbox -->
+<div id="lightbox">
+  <img src="" alt="Preview">
+</div>
+
 <script>
 const buttons = document.querySelectorAll('.category-btn');
 const content = document.getElementById('content');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+// Lightbox click
+content.addEventListener('click', e => {
+  if(e.target.tagName === 'IMG') {
+    lightboxImg.src = e.target.src;
+    lightbox.classList.add('visible');
+  }
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('visible');
+});
 
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -182,41 +302,33 @@ buttons.forEach(btn => {
         {id:72831, insigna:"D-SUP", name:"Brown Allanon", rank:"Supervisor", contact:"936-9788", status:"Activ", promovare:"28/04/2025", intrare:"28/04/2025"},
         {id:62402, insigna:"D-001", name:"West Lea", rank:"Inspector-General", contact:"075-8915", status:"Activ", promovare:"17/10/2025", intrare:"30/07/2025"},
         {id:20976, insigna:"D-002", name:"Paduraru Tudor", rank:"Inspector-Şef", contact:"172-0976", status:"Activ", promovare:"17/10/2025", intrare:"01/08/2025"},
-        {id:116530, insigna:"D-004", name:"Marius Mark", rank:"Inspector", contact:"828-5072", status:"Inactiv", promovare:"-", intrare:"01/08/2025"},
-        {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
-        {id:121301, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-        {id:121301, insigna:"D-010", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"}
+        {id:116530, insigna:"D-003", name:"Marius Mark", rank:"Inspector", contact:"828-5072", status:"Inactiv", promovare:"-", intrare:"01/08/2025"},
+        {id:13565, insigna:"D-004", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
+        {id:121301, insigna:"D-005", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Inactiv", promovare:"-", intrare:"25/09/2025"},
+        {id:76050, insigna:"D-006", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
+        {id:63331, insigna:"D-007", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"},
+        {id:52636, insigna:"D-008", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
+        {id:91563, insigna:"D-009", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
+        {id:61494, insigna:"D-010", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Inactiv", promovare:"-", intrare:"13/10/2025"},
+        {id:75957, insigna:"D-011", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Activ", promovare:"-", intrare:"28/08/2025"},
+        {id:79597, insigna:"D-012", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Inactiv", promovare:"-", intrare:"28/08/2025"}
       ];
 
-      let table = `<table>
-        <tr>
-          <th>ID</th>
-          <th>NR. INSIGNA</th>
-          <th>NUME</th>
-          <th>RANK</th>
-          <th>CONTACT</th>
-          <th>STATUS</th>
-          <th>ULTIMA PROMOVARE</th>
-          <th>DATA INTRARE</th>
-        </tr>`;
-
+      content.innerHTML = "";
       members.forEach(m => {
-        let statusClass = m.status.toLowerCase() === "activ" ? "status-activ" : "status-inactiv";
-        table += `
-        <tr>
-          <td>${m.id}</td>
-          <td>${m.insigna}</td>
-          <td>${m.name}</td>
-          <td>${m.rank}</td>
-          <td>${m.contact}</td>
-          <td class="${statusClass}">${m.status}</td>
-          <td>${m.promovare}</td>
-          <td>${m.intrare}</td>
-        </tr>`;
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${m.name}</h3>
+          <p>Insigna: ${m.insigna}</p>
+          <p>Rank: ${m.rank}</p>
+          <p>Contact: ${m.contact}</p>
+          <p>Promovare: ${m.promovare}</p>
+          <p>Intrare: ${m.intrare}</p>
+          <span class="badge ${m.status.toLowerCase()}">${m.status}</span>
+        `;
+        content.appendChild(card);
       });
-
-      table += "</table>";
-      content.innerHTML = table;
     }
 
     if(type === "afaceri") {
@@ -237,8 +349,7 @@ buttons.forEach(btn => {
         </tr>`;
 
       businesses.forEach(biz => {
-        let statusClass = biz.status.toLowerCase() === "închis" ? "status-inchis" : 
-                          biz.status.toLowerCase() === "deschis" ? "status-deschis" : "";
+        let statusClass = biz.status.toLowerCase() === "închis" ? "status-inchis" : "status-deschis";
         table += `
         <tr>
           <td>${biz.numar}</td>
@@ -248,7 +359,7 @@ buttons.forEach(btn => {
         </tr>`;
       });
 
-      table += "</table>";
+      table += `</table>`;
       content.innerHTML = table;
     }
 
