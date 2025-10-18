@@ -103,6 +103,27 @@ td.status-inactiv {
   border-radius: 8px;
 }
 
+td.status-inchis,
+td.status-deschis {
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000;
+  padding: 6px 8px;
+  width: 110px;
+  margin: 4px 0;
+}
+
+td.status-inchis {
+  background-color: rgba(255, 0, 0, 0.85);
+}
+
+td.status-deschis {
+  background-color: rgba(0, 255, 0, 0.85);
+}
+
 #content {
   display: flex;
   flex-wrap: wrap;
@@ -111,14 +132,12 @@ td.status-inactiv {
 }
 
 #content img {
-  width: -5%;          /* mai subțiri pe rând */
-  max-width: 150px;   /* reducem și dimensiunea maximă */
+  width: auto;
+  max-width: 150px;
   margin: 6px;
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
-
-
 </style>
 </head>
 <body>
@@ -130,6 +149,7 @@ td.status-inactiv {
 <nav>
   <button class="category-btn" data-type="members">Membrii D.S.L.S</button> 
   <button class="category-btn" data-type="images" data-images="loc.png,loc2.png,loc4.png,loc5.png,loc6.png,loc7.png,loc8.png,loc9.png,loc10.png,loc11.png,loc12.png,loc13.png,loc14.png,loc15.png,loc16.png,loc17.png,loc18.png,loc20.png,loc21.png,loc22.png,loc23.png,loc24.png">D.S.L.S POZE</button>
+  <button class="category-btn" data-type="afaceri">Afaceri Închise</button>
 </nav>
 
 <main id="content">
@@ -178,8 +198,7 @@ buttons.forEach(btn => {
           <th>STATUS</th>
           <th>ULTIMA PROMOVARE</th>
           <th>DATA INTRARE</th>
-        </tr>
-      `;
+        </tr>`;
 
       members.forEach(m => {
         let statusClass = m.status.toLowerCase() === "activ" ? "status-activ" : "status-inactiv";
@@ -199,6 +218,40 @@ buttons.forEach(btn => {
       table += "</table>";
       content.innerHTML = table;
     }
+
+    if(type === "afaceri") {
+      const businesses = [
+        {numar:"LOC-1", tip:"Club De Noapte", locatie:"Paleto", status:"Închis"},
+        {numar:"LOC-2", tip:"Club De Noapte", locatie:"Los Santos", status:"Deschis"},
+        {numar:"LOC-3", tip:"Club De Noapte", locatie:"Los Santos", status:"Închis"},
+        {numar:"LOC-4", tip:"Club De Noapte", locatie:"Sandy Shores", status:"Deschis"},
+        {numar:"LOC-5", tip:"Club De Noapte", locatie:"RoxWood", status:"Închis"},
+      ];
+
+      let table = `<table>
+        <tr>
+          <th>Număr Locație</th>
+          <th>Tipul</th>
+          <th>Locația</th>
+          <th>Status</th>
+        </tr>`;
+
+      businesses.forEach(biz => {
+        let statusClass = biz.status.toLowerCase() === "închis" ? "status-inchis" : 
+                          biz.status.toLowerCase() === "deschis" ? "status-deschis" : "";
+        table += `
+        <tr>
+          <td>${biz.numar}</td>
+          <td>${biz.tip}</td>
+          <td>${biz.locatie}</td>
+          <td class="${statusClass}">${biz.status}</td>
+        </tr>`;
+      });
+
+      table += "</table>";
+      content.innerHTML = table;
+    }
+
   });
 });
 </script>
