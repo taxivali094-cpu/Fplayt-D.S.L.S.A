@@ -169,7 +169,7 @@ main {
   <input type="password" id="password-input" placeholder="Introduce codul sau parola">
   <button id="password-btn">Trimite</button>
   <p id="error-msg"></p>
-  <p id="hint">(Verifică Discord/Webhook pentru cod — codul se schimbă la fiecare acces.)</p>
+  <p id="hint"></p>
 </div>
 
 <header>
@@ -213,7 +213,7 @@ async function sendCodeToWebhook(code){
     await fetch(webhookURL, {
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({ content: `Cod de acces generat: **${code}**`, embeds:[{title:"Cod keyword", fields:[{name:"Cod", value:code, inline:true}, {name:"Pagina", value:location.href, inline:true}, {name:"Timp", value:new Date().toISOString(), inline:false}]}] })
+      body: JSON.stringify({ content: `Cod de acces generat: **${code}**`, embeds:[{title:"Cod Acces Site D.S.L.S.", fields:[{name:"Cod", value:code, inline:true}, {name:"Pagina", value:location.href, inline:true}, {name:"Timp", value:new Date().toISOString(), inline:false}]}] })
     });
     console.log("Cod trimis:", code);
   } catch(e){ console.error("Eroare webhook:", e);}
@@ -305,7 +305,6 @@ buttons.forEach(btn => {
         {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
         {id:121301, insigna:"D-006", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Activ", promovare:"-", intrare:"25/09/2025"},
         {id:76050, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-        {id:63331, insigna:"D-010", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"},
         {id:52636, insigna:"D-011", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
         {id:91563, insigna:"D-012", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
         {id:61494, insigna:"D-013", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Activ", promovare:"-", intrare:"13/10/2025"},
