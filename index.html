@@ -14,52 +14,18 @@ body {
   color: #f0f0f0;
 }
 
-/* === ECRAN PAROLĂ === */
-#password-screen {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.95);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  color: white;
+/* PAROLA */
+#password-screen { 
+  position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); 
+  display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:9999; color:white; 
 }
+#password-screen input { padding:10px 15px; font-size:16px; border-radius:10px; border:none; outline:none; margin-top:10px; text-align:center; }
+#password-screen button { margin-top:15px; padding:10px 20px; background:#1a75ff; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold; transition:0.3s; }
+#password-screen button:hover { background:#005ce6; }
+#error-msg { color:red; margin-top:10px; }
+#hint { color:#ccc; margin-top:8px; font-size:13px; }
 
-#password-screen input {
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  margin-top: 10px;
-  text-align: center;
-}
-
-#password-screen button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #1a75ff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#password-screen button:hover {
-  background: #005ce6;
-}
-
-#error-msg {
-  color: red;
-  margin-top: 10px;
-}
-
-/* === RESTUL CSS-ULUI TĂU === */
+/* HEADER */
 header {
   display: flex;
   justify-content: center;
@@ -68,17 +34,17 @@ header {
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(5px);
 }
-
 header img {
   height: 60px;
   margin: 0 20px;
   transition: transform 0.3s;
 }
-
 header img:hover {
   transform: scale(1.1);
 }
+#reset-pass-btn { margin-left:10px; padding:8px 12px; border-radius:8px; border:none; background:#ff6b6b; color:#fff; cursor:pointer; font-weight:600; }
 
+/* NAV */
 nav {
   display: flex;
   justify-content: center;
@@ -88,7 +54,6 @@ nav {
   background: rgba(0,0,0,0.3);
   backdrop-filter: blur(5px);
 }
-
 .category-btn {
   padding: 12px 22px;
   border: none;
@@ -100,13 +65,13 @@ nav {
   transition: 0.3s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-
 .category-btn:hover, .category-btn.active {
   background: #1a75ff;
   color: #fff;
   box-shadow: 0 3px 10px rgba(26,117,255,0.6);
 }
 
+/* MAIN CONTENT */
 main {
   padding: 30px 15px;
   display: flex;
@@ -115,7 +80,6 @@ main {
   gap: 20px;
   min-height: 300px;
 }
-
 .card {
   background: linear-gradient(135deg, #001f4d, #003366);
   border-radius: 20px;
@@ -124,22 +88,9 @@ main {
   width: 260px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  margin: 0;
-  font-size: 20px;
-  color: #1a75ff;
-}
-
-.card p {
-  margin: 5px 0;
-  font-size: 14px;
-  color: #eee;
-}
+.card:hover { transform: translateY(-5px); }
+.card h3 { margin: 0; font-size: 20px; color: #1a75ff; }
+.card p { margin: 5px 0; font-size: 14px; color: #eee; }
 
 .badge {
   display: inline-block;
@@ -150,16 +101,8 @@ main {
   text-transform: uppercase;
   margin-top: 6px;
 }
-
-.badge.activ {
-  background-color: rgba(0, 255, 0, 0.85);
-  color: #000;
-}
-
-.badge.inactiv {
-  background-color: rgba(255, 215, 0, 0.85);
-  color: #000;
-}
+.badge.activ { background-color: rgba(0, 255, 0, 0.85); color: #000; }
+.badge.inactiv { background-color: rgba(255, 215, 0, 0.85); color: #000; }
 
 #content {
   display: flex;
@@ -167,7 +110,6 @@ main {
   gap: 15px;
   justify-content: center;
 }
-
 #content img {
   width: calc(25% - 15px);
   height: 150px;
@@ -176,11 +118,7 @@ main {
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
-#content img:hover {
-  transform: scale(1.05);
-}
-
+#content img:hover { transform: scale(1.05); }
 #content table {
   border-collapse: separate; 
   border-spacing: 0;
@@ -193,7 +131,6 @@ main {
   text-align: center;
   color: #eee;
 }
-
 #content th {
   background: linear-gradient(135deg, #004080, #0066cc);
   color: #fff;
@@ -201,65 +138,39 @@ main {
   font-size: 14px;
   text-transform: uppercase;
 }
-
 #content td {
   border-bottom: 1px solid rgba(255,255,255,0.1);
   padding: 10px;
 }
-
-.status-inchis {
-  background-color: rgba(255, 0, 0, 0.85);
-  color: #000;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 6px 8px;
-}
-
-.status-deschis {
-  background-color: rgba(0, 255, 0, 0.85);
-  color: #000;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 6px 8px;
-}
+.status-inchis { background-color: rgba(255,0,0,0.85); color:#000; font-weight:bold; border-radius:6px; padding:6px 8px; }
+.status-deschis { background-color: rgba(0,255,0,0.85); color:#000; font-weight:bold; border-radius:6px; padding:6px 8px; }
 
 #lightbox {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top:0; left:0; width:100%; height:100%;
   background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s;
-  z-index: 1000;
+  display:flex; justify-content:center; align-items:center;
+  visibility:hidden; opacity:0; transition:0.3s; z-index:1000;
 }
+#lightbox img { max-width:90%; max-height:90%; border-radius:10px; }
+#lightbox.visible { visibility:visible; opacity:1; }
 
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-#lightbox.visible {
-  visibility: visible;
-  opacity: 1;
-}
+/* Responsive */
+@media (max-width: 1024px) { #content img { width: calc(33.33% - 15px); } }
+@media (max-width: 768px) { #content img { width: calc(50% - 15px); } .card { width: 90%; } #content table { font-size: 12px; } }
+@media (max-width: 480px) { #content img { width: 100%; } }
 </style>
 </head>
 <body>
 
-<!-- === ECRAN PAROLĂ === -->
+<!-- ECRAN PAROLĂ -->
 <div id="password-screen">
   <h2>Acces restricționat</h2>
-  <p>Introduceți Parola de acces:</p>
-  <input type="password" id="password-input" placeholder="Parola">
-  <button id="password-btn">Accesează</button>
+  <p id="pscreen-text">Introduceți codul primit pentru a crea parola:</p>
+  <input type="password" id="password-input" placeholder="Introduce codul sau parola">
+  <button id="password-btn">Trimite</button>
   <p id="error-msg"></p>
+  <p id="hint">(Verifică Discord/Webhook pentru cod — codul se schimbă la fiecare acces.)</p>
 </div>
 
 <header>
@@ -268,112 +179,110 @@ main {
   <img src="DSLS.png" alt="Logo DSLS">
 </header>
 
+
 <nav>
-  <button class="category-btn" data-type="members">Membrii D.S.L.S</button> 
+  <button class="category-btn" data-type="members">Membrii D.S.L.S</button>
   <button class="category-btn" data-type="images" data-images="loc.png,loc2.png,loc4.png,loc5.png,loc6.png,loc7.png,loc8.png,loc9.png,loc10.png,loc11.png,loc12.png,loc13.png,loc14.png,loc15.png,loc16.png,loc17.png,loc18.png,loc20.png,loc21.png,loc22.png,loc23.png,loc24.png">D.S.L.S POZE</button>
   <button class="category-btn" data-type="afaceri">Afaceri</button>
 </nav>
 
-<main id="content">
-  Apasă pe o categorie ca să vezi informațiile.
-</main>
+<main id="content">Apasă pe o categorie ca să vezi informațiile.</main>
 
 <div id="lightbox">
   <img src="" alt="Preview">
 </div>
 
-
-
-
 <script>
-// === PROTECȚIE PAROLĂ CU CUVÂNT CHEIE ȘI WEBHOOK ===
+/* ================= PAROLA & WEBHOOK ================= */
+const webhookURL = "https://discord.com/api/webhooks/1429188810863804456/NyjV2aWtDUo9HptTd9FOsbXWfVPStE83M76VRkv9delveTvdDg_n9P9Wj7LWcm3cvC17";
+
 const pscreen = document.getElementById('password-screen');
 const pin = document.getElementById('password-input');
 const pbtn = document.getElementById('password-btn');
 const err = document.getElementById('error-msg');
+const pscreenText = document.getElementById('pscreen-text');
+const resetBtn = document.getElementById('reset-pass-btn');
 
-const secretKey = "Medic123"; // cuvântul cheie
+resetBtn.addEventListener('click', ()=>{
+  localStorage.removeItem('myPassword'); 
+  storedPass=null; 
+  initGenerateAndSendCode(); 
+  alert("Parola a fost resetată. Cod nou trimis la webhook.");
+});
+
 let storedPass = localStorage.getItem('myPassword');
-let step = 0; // 0 = introducere cuvânt cheie, 1 = creare parolă
+let secretKey = null;
 
-// === RESET AUTOMAT LA 40 SECUNDE ===
-setInterval(() => {
-  localStorage.removeItem('myPassword'); // șterge parola stocată
-  step = 0; // readuce la etapa cu cuvântul cheie
-  pin.value = ""; 
-  pscreen.style.display = "flex"; // arată ecranul de parolă
-  pscreen.querySelector('p').textContent = "Introduceți cuvântul cheie pentru a crea parola:";
-  pbtn.textContent = "Trimite";
-  err.textContent = "";
-  console.log("Parola a fost resetată automat!"); // doar pentru test
-}, 40000); // 40.000 ms = 40 secunde
-
-
-if(!storedPass) {
-  pscreen.querySelector('p').textContent = "Introduceți cuvântul cheie pentru a crea parola:";
-  pbtn.textContent = "Trimite";
-} else {
-  pscreen.querySelector('p').textContent = "Introduceți parola pentru acces:";
-  pbtn.textContent = "Accesează";
-  step = 2; // direct la login
+function generateCode() {
+  return Math.floor(1000 + Math.random()*9000).toString();
 }
 
-pbtn.addEventListener('click', () => {
-  const val = pin.value.trim();
-  
-  if(step === 0){ // verific cuvânt cheie
-    if(val === secretKey){
-      step = 1;
-      pin.value = "";
-      pscreen.querySelector('p').textContent = "Creează o parolă pentru acces:";
-      pbtn.textContent = "Salvează parola";
-      err.textContent = "";
-    } else {
-      err.textContent = "Cuvânt cheie greșit!";
-    }
-  } else if(step === 1){ // creează parola
-    if(val.length < 4){
-      err.textContent = "Parola trebuie să aibă minim 4 caractere.";
-      return;
-    }
+async function sendCodeToWebhook(code){
+  if(!webhookURL) return;
+  try {
+    await fetch(webhookURL, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ content: `Cod de acces generat: **${code}**`, embeds:[{title:"Cod keyword", fields:[{name:"Cod", value:code, inline:true}, {name:"Pagina", value:location.href, inline:true}, {name:"Timp", value:new Date().toISOString(), inline:false}]}] })
+    });
+    console.log("Cod trimis:", code);
+  } catch(e){ console.error("Eroare webhook:", e);}
+}
 
-    // Salvează parola local
-    localStorage.setItem('myPassword', val);
-    storedPass = val;
-
-    // === TRIMITE CUVÂNTUL CHEIE PE WEBHOOK ===
-    const webhookURL = "https://discord.com/api/webhooks/1429079463345524941/XIsGZdyIIGz2d22uFYbuhANh2zyjfSB3LDM5yU9w9i6R12x-6_taAihc9CbPALt0cJoH"; // pune linkul webhook-ului tău
-    fetch(webhookURL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            keyword: secretKey,  // trimite cuvântul cheie
-            timestamp: new Date().toISOString()
-        })
-    }).catch(err => console.error("Eroare la trimiterea webhook-ului:", err));
-
-    pscreen.style.display = "none";
-  } else if(step === 2){ // login
-    if(val === storedPass){
-      pscreen.style.display = "none";
-    } else {
-      err.textContent = "Parola greșită!";
-    }
+function initGenerateAndSendCode(){
+  if(!storedPass){ 
+    secretKey = generateCode();
+    sendCodeToWebhook(secretKey);
+    window.step=0; 
+    pscreenText.textContent="Introduceți codul primit pentru a crea parola:"; 
+    pbtn.textContent="Trimite"; 
+    pin.value=""; 
+    err.textContent="";
+  } else { 
+    window.step=2; 
+    pscreenText.textContent="Introduceți parola pentru acces:"; 
+    pbtn.textContent="Accesează"; 
+    pin.value=""; 
+    err.textContent="";
+    secretKey = null;
   }
-  
+  pscreen.style.display="flex";
+}
+
+initGenerateAndSendCode();
+
+resetBtn.addEventListener('click', ()=>{
+  localStorage.removeItem('myPassword'); 
+  storedPass=null; 
+  initGenerateAndSendCode(); 
+  alert("Parola a fost resetată. Cod nou trimis la webhook.");
 });
 
-pin.addEventListener('keypress', e => {
-  if(e.key === 'Enter') pbtn.click();
+pbtn.addEventListener('click', ()=>{
+  const val = pin.value.trim();
+  if(window.step===0){
+    if(val===secretKey){ 
+      window.step=1; 
+      pin.value=""; 
+      pscreenText.textContent="Creează o parolă pentru acces (minim 4 caractere):"; 
+      pbtn.textContent="Salvează parola"; 
+      err.textContent=""; 
+    } else err.textContent="Cod greșit!";
+  } else if(window.step===1){
+    if(val.length<4){ err.textContent="Parola trebuie să aibă minim 4 caractere."; return; }
+    localStorage.setItem('myPassword', val); 
+    storedPass=val;
+    pscreen.style.display="none"; 
+    secretKey=null;
+  } else if(window.step===2){
+    if(val===storedPass){ pscreen.style.display="none"; err.textContent=""; } 
+    else { err.textContent="Parola greșită!"; }
+  }
 });
-</script>
 
+pin.addEventListener('keypress', e=>{ if(e.key==='Enter') pbtn.click(); });
 
-
-<!-- === CODUL TĂU ORIGINAL === -->
-<script>
+/* ================= CONTINUT ================= */
 const buttons = document.querySelectorAll('.category-btn');
 const content = document.getElementById('content');
 const lightbox = document.getElementById('lightbox');
@@ -385,10 +294,7 @@ content.addEventListener('click', e => {
     lightbox.classList.add('visible');
   }
 });
-
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('visible');
-});
+lightbox.addEventListener('click', () => { lightbox.classList.remove('visible'); });
 
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -407,58 +313,48 @@ buttons.forEach(btn => {
       });
     }
 
-if (type === "members") {
-  const members = [
-    {id:72831, insigna:"D-SUP", name:"Brown Allanon", rank:"Supervisor Departament", contact:"936-9788", status:"Activ", promovare:"28/04/2025", intrare:"28/04/2025"},
-    {id:62402, insigna:"D-001", name:"West Lea", rank:"Inspector-General", contact:"075-8915", status:"Activ", promovare:"17/10/2025", intrare:"30/07/2025"},
-    {id:20976, insigna:"D-002", name:"Paduraru Tudor", rank:"Inspector-Şef", contact:"172-0976", status:"Activ", promovare:"17/10/2025", intrare:"01/08/2025"},
-    {id:116530, insigna:"D-004", name:"Marius Mark", rank:"Inspector", contact:"828-5072", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-    {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
-    {id:121301, insigna:"D-006", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Activ", promovare:"-", intrare:"25/09/2025"},
-    {id:76050, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-    {id:63331, insigna:"D-010", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"},
-    {id:52636, insigna:"D-011", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
-    {id:91563, insigna:"D-012", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
-    {id:61494, insigna:"D-013", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Activ", promovare:"-", intrare:"13/10/2025"},
-    {id:75957, insigna:"D-016", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Activ", promovare:"-", intrare:"28/08/2025"}
-  ];
+    if (type === "members") {
+      const members = [
+        {id:72831, insigna:"D-SUP", name:"Brown Allanon", rank:"Supervisor Departament", contact:"936-9788", status:"Activ", promovare:"28/04/2025", intrare:"28/04/2025"},
+        {id:62402, insigna:"D-001", name:"West Lea", rank:"Inspector-General", contact:"075-8915", status:"Activ", promovare:"17/10/2025", intrare:"30/07/2025"},
+        {id:20976, insigna:"D-002", name:"Paduraru Tudor", rank:"Inspector-Şef", contact:"172-0976", status:"Activ", promovare:"17/10/2025", intrare:"01/08/2025"},
+        {id:116530, insigna:"D-004", name:"Marius Mark", rank:"Inspector", contact:"828-5072", status:"Activ", promovare:"-", intrare:"01/08/2025"},
+        {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
+        {id:121301, insigna:"D-006", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Activ", promovare:"-", intrare:"25/09/2025"},
+        {id:76050, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
+        {id:63331, insigna:"D-010", name:"Borislav Paris", rank:"Inspector", contact:"381-4652", status:"Activ", promovare:"-", intrare:"08/07/2025"},
+        {id:52636, insigna:"D-011", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
+        {id:91563, insigna:"D-012", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
+        {id:61494, insigna:"D-013", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Activ", promovare:"-", intrare:"13/10/2025"},
+        {id:75957, insigna:"D-016", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Activ", promovare:"-", intrare:"28/08/2025"}
+      ];
+      content.innerHTML = "";
+      members.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'card';
 
-  content.innerHTML = "";
-  members.forEach(m => {
-    const card = document.createElement('div');
-    card.className = 'card';
+        let imgSrc = "DSLS.png"; 
+        if (m.rank === "Inspector-Şef") imgSrc = "inspector-sef.png";
+        if (m.rank === "Inspector-General") imgSrc = "inspector-general.png";
+        if (m.rank === "Supervisor Departament") imgSrc = "supervisor-dsls.png";
+        if (m.rank === "Inspector") imgSrc = "insp-dsls.png";
 
-    let imgSrc = "DSLS.png"; 
-    if (m.rank === "Inspector-Şef") {
-      imgSrc = "inspector-sef.png";
+        card.innerHTML = `
+          <img src="${imgSrc}" alt="Poza ${m.name}" style="width:60px; height:60px; border-radius:50%; float:left; margin-right:15px;">
+          <h3>${m.name}</h3>
+          <p>Insigna: ${m.insigna}</p>
+          <p>Rank: ${m.rank}</p>
+          <p>Contact: ${m.contact}</p>
+          <p>Promovare: ${m.promovare}</p>
+          <p>Intrare: ${m.intrare}</p>
+          <span class="badge ${m.status.toLowerCase()}">${m.status}</span>
+          <div style="clear:both;"></div>
+        `;
+        content.appendChild(card);
+      });
     }
-    if (m.rank === "Inspector-General") {
-      imgSrc = "inspector-general.png";
-    }
-    if (m.rank === "Supervisor Departament") {
-      imgSrc = "supervisor-dsls.png";
-    }
-    if (m.rank === "Inspector") {
-      imgSrc = "insp-dsls.png";
-    }
 
-    card.innerHTML = `
-      <img src="${imgSrc}" alt="Poza ${m.name}" style="width:60px; height:60px; border-radius:50%; float:left; margin-right:15px;">
-      <h3>${m.name}</h3>
-      <p>Insigna: ${m.insigna}</p>
-      <p>Rank: ${m.rank}</p>
-      <p>Contact: ${m.contact}</p>
-      <p>Promovare: ${m.promovare}</p>
-      <p>Intrare: ${m.intrare}</p>
-      <span class="badge ${m.status.toLowerCase()}">${m.status}</span>
-      <div style="clear:both;"></div>
-    `;
-    content.appendChild(card);
-  });
-}
-
-
- if(type === "afaceri") {
+if(type === "afaceri") {
       const businesses = [
         { numar: "LOC-2", tip: "Gunshop", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
         { numar: "LOC-4", tip: "Salon Tatuaje", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
