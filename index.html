@@ -316,6 +316,9 @@ if (type === "members") {
     if (m.rank === "Supervisor Departament") {
       imgSrc = "supervisor-dsls.png";
     }
+    if (m.rank === "Inspector") {
+      imgSrc = "insp-dsls.png";
+    }
 
     card.innerHTML = `
       <img src="${imgSrc}" alt="Poza ${m.name}" style="width:60px; height:60px; border-radius:50%; float:left; margin-right:15px;">
