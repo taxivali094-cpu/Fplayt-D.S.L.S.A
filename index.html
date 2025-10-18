@@ -14,6 +14,52 @@ body {
   color: #f0f0f0;
 }
 
+/* === ECRAN PAROLĂ === */
+#password-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+}
+
+#password-screen input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#password-screen button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #1a75ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#password-screen button:hover {
+  background: #005ce6;
+}
+
+#error-msg {
+  color: red;
+  margin-top: 10px;
+}
+
+/* === RESTUL CSS-ULUI TĂU === */
 header {
   display: flex;
   justify-content: center;
@@ -203,33 +249,18 @@ main {
   visibility: visible;
   opacity: 1;
 }
-
-@media (max-width: 1024px) {
-  #content img {
-    width: calc(33.33% - 15px);
-  }
-}
-
-@media (max-width: 768px) {
-  #content img {
-    width: calc(50% - 15px);
-  }
-  .card {
-    width: 90%;
-  }
-  #content table {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  #content img {
-    width: 100%;
-  }
-}
 </style>
 </head>
 <body>
+
+<!-- === ECRAN PAROLĂ === -->
+<div id="password-screen">
+  <h2>Acces restricționat</h2>
+  <p>Introduceți Parola de acces:</p>
+  <input type="password" id="password-input" placeholder="Parola">
+  <button id="password-btn">Accesează</button>
+  <p id="error-msg"></p>
+</div>
 
 <header>
   <img src="FP.png" alt="Logo Fplayt">
@@ -251,6 +282,50 @@ main {
   <img src="" alt="Preview">
 </div>
 
+<script>
+// === PROTECȚIE PAROLĂ PERSONALIZABILĂ ===
+const pscreen = document.getElementById('password-screen');
+const pin = document.getElementById('password-input');
+const pbtn = document.getElementById('password-btn');
+const err = document.getElementById('error-msg');
+
+let storedPass = localStorage.getItem('myPassword');
+
+if(!storedPass) {
+  pscreen.querySelector('p').textContent = "Creează o parolă pentru acces:";
+  pbtn.textContent = "Salvează parola";
+} else {
+  pscreen.querySelector('p').textContent = "Introduceți parola pentru acces:";
+  pbtn.textContent = "Accesează";
+}
+
+pbtn.addEventListener('click', () => {
+  const val = pin.value.trim();
+  
+  if(!storedPass) {
+    if(val.length < 4){
+      err.textContent = "Parola trebuie să aibă minim 4 caractere.";
+      return;
+    }
+    localStorage.setItem('myPassword', val);
+    storedPass = val;
+    pscreen.style.display = "none";
+  } else {
+    if(val === storedPass){
+      pscreen.style.display = "none";
+    } else {
+      err.textContent = "Parola greșită!";
+    }
+  }
+});
+
+pin.addEventListener('keypress', e => {
+  if(e.key === 'Enter') pbtn.click();
+});
+</script>
+
+
+<!-- === CODUL TĂU ORIGINAL === -->
 <script>
 const buttons = document.querySelectorAll('.category-btn');
 const content = document.getElementById('content');
