@@ -283,26 +283,39 @@ main {
 </div>
 
 <script>
-// === PROTECȚIE PAROLĂ PERSONALIZABILĂ ===
+// === PROTECȚIE PAROLĂ CU CUVÂNT CHEIE ===
 const pscreen = document.getElementById('password-screen');
 const pin = document.getElementById('password-input');
 const pbtn = document.getElementById('password-btn');
 const err = document.getElementById('error-msg');
 
+const secretKey = "Medic123"; // cuvântul cheie
 let storedPass = localStorage.getItem('myPassword');
+let step = 0; // 0 = introducere cuvânt cheie, 1 = creare parolă
 
 if(!storedPass) {
-  pscreen.querySelector('p').textContent = "Creează o parolă pentru acces:";
-  pbtn.textContent = "Salvează parola";
+  pscreen.querySelector('p').textContent = "Introduceți cuvântul cheie pentru a crea parola:";
+  pbtn.textContent = "Trimite";
 } else {
   pscreen.querySelector('p').textContent = "Introduceți parola pentru acces:";
   pbtn.textContent = "Accesează";
+  step = 2; // direct la login
 }
 
 pbtn.addEventListener('click', () => {
   const val = pin.value.trim();
   
-  if(!storedPass) {
+  if(step === 0){ // verific cuvânt cheie
+    if(val === secretKey){
+      step = 1;
+      pin.value = "";
+      pscreen.querySelector('p').textContent = "Creează o parolă pentru acces:";
+      pbtn.textContent = "Salvează parola";
+      err.textContent = "";
+    } else {
+      err.textContent = "Cuvânt cheie greșit!";
+    }
+  } else if(step === 1){ // creează parola
     if(val.length < 4){
       err.textContent = "Parola trebuie să aibă minim 4 caractere.";
       return;
@@ -310,7 +323,7 @@ pbtn.addEventListener('click', () => {
     localStorage.setItem('myPassword', val);
     storedPass = val;
     pscreen.style.display = "none";
-  } else {
+  } else if(step === 2){ // login
     if(val === storedPass){
       pscreen.style.display = "none";
     } else {
