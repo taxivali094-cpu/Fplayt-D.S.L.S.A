@@ -1,467 +1,468 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghid D.S.L.S. Fplayt</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="icon" href="FP.png" />
-<style>
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom, #0d1b3a);
-  color: #f0f0f0;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comenzi Destiny RP | Graduri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --purple: #9d4edd;
+      --purple-dark: #7b2cbf;
+      --purple-glow: #c689ff;
+      --bg: #0f0a1a;
+      --card: #1a0f30;
+      --text: #e0d4ff;
+      --text-light: #b8a8e0;
+      --accent: #ff6bff;
+      --green: #2cff00;
+      --blue: #2d58ce;
+      --yellow: #f3a003;
+      --orange: #ff4d00;
+      --red: #890000;
+    }
 
-#password-screen { 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 100%; 
-  background: rgba(0, 0, 0, 0.5); 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  font-size: 3vh;
-  align-items: center; 
-  z-index: 9999; 
-  color: white; 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px); 
-}
-#password-screen input { padding:10px 15px; font-size:16px; border-radius:10px; border:none; outline:none; margin-top:10px; text-align:center; }
-#password-screen button { margin-top:15px; padding:10px 20px; background:#1a75ff; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold; transition:0.3s; }
-#password-screen button:hover { background:#005ce6; }
-#error-msg { color:red; margin-top:10px; }
-#hint { color:#ccc; margin-top:8px; font-size:13px; }
+    /* Fundal particule */
+    #particles {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+    }
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(5px);
-}
-header img {
-  height: 60px;
-  margin: 0 20px;
-  transition: transform 0.3s;
-}
-header img:hover {
-  transform: scale(1.1);
-}
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
-/* NAV */
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3px;
-  padding: 15px 0;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(5px);
-}
-.category-btn {
-  padding: 12px 22px;
-  border: none;
-  border-radius: 45px;
-  cursor: pointer;
-  font-weight: 500;
-  background: #0d1b3a;
-  color: #f0f0f0;
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-.category-btn:hover, .category-btn.active {
-  background: #1a75ff;
-  /* color: #fff; */
-  box-shadow: 0 2px 10px rgba(26,117,255,0.6);
-}
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, rgba(157, 78, 221, 0.15), rgba(123, 44, 191, 0.05));
+      border-radius: 20px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(157, 78, 221, 0.3);
+    }
 
-/* MAIN CONTENT */
-main {
-  padding: 30px 15px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  min-height: 300px;
-}
-.card {
-  background: linear-gradient(135deg, #001f4d, #003366);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  padding: 20px;
-  width: 260px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover { transform: translateY(-5px); }
-.card h3 { margin: 0; font-size: 20px; color: #1a75ff; }
-.card p { margin: 5px 0; font-size: 14px; color: #eee; }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      background: linear-gradient(90deg, #9d4edd, #ff6bff, #9d4edd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(157, 78, 221, 0.7);
+      margin-bottom: 12px;
+    }
 
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
-.badge.activ { background-color: rgba(0, 255, 0, 0.85); color: #000; }
-.badge.inactiv { background-color: rgba(255, 215, 0, 0.85); color: #000; }
+    .subtitle {
+      color: var(--text-light);
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
 
-#content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-#content img {
-  width: calc(25% - 15px);
-  height: 150px;
-  object-fit: cover;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-#content img:hover { transform: scale(1.05); }
-#content table {
-  border-collapse: separate; 
-  border-spacing: 0;
-  width: 100%;
-  max-width: 900px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: linear-gradient(145deg, #001f4d, #003366);
-  font-size: 14px;
-  text-align: center;
-  color: #eee;
-}
-#content th {
-  background: linear-gradient(135deg, #004080, #0066cc);
-  color: #fff;
-  padding: 12px;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-#content td {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 10px;
-}
-.status-inchis { background-color: rgba(255,0,0,0.85); color:#000; font-weight:bold; border-radius:6px; padding:6px 8px; }
-.status-deschis { background-color: rgba(0,255,0,0.85); color:#000; font-weight:bold; border-radius:6px; padding:6px 8px; }
+    .search-container {
+      position: relative;
+      margin: 30px 0;
+    }
 
-#lightbox {
-  position: fixed;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.9);
-  display:flex; justify-content:center; align-items:center;
-  visibility:hidden; opacity:0; transition:0.3s; z-index:1000;
-}
-#lightbox img { max-width:90%; max-height:90%; border-radius:10px; }
-#lightbox.visible { visibility:visible; opacity:1; }
+    #searchInput {
+      width: 100%;
+      padding: 18px 55px 18px 22px;
+      font-size: 1.1rem;
+      background: var(--card);
+      border: 2px solid transparent;
+      border-radius: 18px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: all 0.4s ease;
+    }
 
-/* Responsive */
-@media (max-width: 1024px) { #content img { width: calc(33.33% - 15px); } }
-@media (max-width: 768px) { #content img { width: calc(50% - 15px); } .card { width: 90%; } #content table { font-size: 12px; } }
-@media (max-width: 480px) { #content img { width: 100%; } }
-</style>
+    #searchInput:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 25px rgba(157, 78, 221, 0.6);
+      transform: scale(1.02);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--purple-glow);
+      font-size: 1.4rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    .commands-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 10px 0;
+    }
+
+    .cmd-item {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid rgba(157, 78, 221, 0.2);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cmd-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.1), transparent);
+      transition: 0.6s;
+    }
+
+    .cmd-item:hover::before {
+      left: 100%;
+    }
+
+    .cmd-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cmd-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(157, 78, 221, 0.3);
+      border-color: var(--purple);
+    }
+
+    .cmd-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .cmd-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cmd-name code {
+      background: rgba(157, 78, 221, 0.25);
+      padding: 4px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #ff6bff;
+      border: 1px solid rgba(157, 78, 221, 0.5);
+      font-weight: 500;
+    }
+
+    .cmd-grade {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-weight: 600;
+      background: rgba(157, 78, 221, 0.2);
+      color: white;
+      border: 1px solid var(--purple);
+    }
+
+    .cmd-grade i { font-size: 1rem; }
+
+    .cmd-desc {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-top: 60px;
+      border-top: 1px dashed rgba(157, 78, 221, 0.3);
+    }
+
+    .glow {
+      color: var(--purple-glow);
+      text-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.3rem; }
+      .cmd-name { font-size: 1.1rem; }
+      .cmd-name code { font-size: 0.8rem; padding: 3px 8px; }
+      .cmd-grade { font-size: 0.75rem; padding: 5px 10px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ECRAN PAROLĂ -->
-<div id="password-screen">
-  <h2>Acces Interzis !</h2>
-  <p id="pscreen-text">Introduceți codul primit pentru a crea parola:</p>
-  <input type="password" id="password-input" placeholder="Introduce codul sau parola">
-  <button id="password-btn">Trimite</button>
-  <p id="error-msg"></p>
-  <p id="hint"></p>
-</div>
+  <canvas id="particles"></canvas>
 
-<header>
-  <img src="FP.png" alt="Logo Fplayt">
-  <img src="eclipse-fpt.png" alt="Logo FPT MEDICI">
-  <img src="DSLS.png" alt="Logo DSLS">
-</header>
+  <div class="container">
+    <header>
+      <h1>COMENZI</h1>
+      <p class="subtitle">Ordonate de la <span class="glow">cel mai mic grad</span> la <span class="glow">cel mai mare</span></p>
+    </header>
 
-<nav>
-  <button class="category-btn" data-type="members">Membrii D.S.L.S</button>
-  <button class="category-btn" data-type="images" data-images="loc.png,loc2.png,loc4.png,loc5.png,loc6.png,loc7.png,loc8.png,loc9.png,loc10.png,loc11.png,loc12.png,loc13.png,loc14.png,loc15.png,loc16.png,loc17.png,loc18.png,loc20.png,loc21.png,loc22.png,loc23.png,loc24.png">D.S.L.S POZE</button>
-  <button class="category-btn" data-type="afaceri">Afaceri</button>
-</nav>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Caută o comandă..." />
+      <i class="fas fa-search search-icon"></i>
+    </div>
 
-<main id="content">Apasă pe o categorie ca să vezi informațiile.</main>
+    <div class="commands-list" id="commandsList">
+      <!-- COMENZI TOȚI JUCĂTORII -->
+      <div class="cmd-item" data-grade="0">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-globe"></i> <code>/coords</code></div>
+          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
+        </div>
+        <div class="cmd-desc">Afișează coordonatele tale actuale (pentru copiere)</div>
+      </div>
 
-<div id="lightbox">
-  <img src="" alt="Preview">
-</div>
+      <div class="cmd-item" data-grade="0">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-id-badge"></i> <code>/id [nume/id]</code></div>
+          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
+        </div>
+        <div class="cmd-desc">Afișează ID, ore jucate, facțiune, Virtual World și CPS</div>
+      </div>
 
-<script>
-/* ================= PAROLA & WEBHOOK ================= */
-const webhookURL = "https://discord.com/api/webhooks/1429188810863804456/NyjV2aWtDUo9HptTd9FOsbXWfVPStE83M76VRkv9delveTvdDg_n9P9Wj7LWcm3cvC17";
+      <div class="cmd-item" data-grade="0">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-user-police-tie"></i> <code>/politie</code></div>
+          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
+        </div>
+        <div class="cmd-desc">Listează toți polițiștii online cu rank-ul</div>
+      </div>
 
-const pscreen = document.getElementById('password-screen');
-const pin = document.getElementById('password-input');
-const pbtn = document.getElementById('password-btn');
-const err = document.getElementById('error-msg');
-const pscreenText = document.getElementById('pscreen-text');
+      <div class="cmd-item" data-grade="0">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-user-md"></i> <code>/medici</code></div>
+          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
+        </div>
+        <div class="cmd-desc">Listează toți medicii (Smurd) online cu rank-ul</div>
+      </div>
 
-let storedPass = localStorage.getItem('myPassword');
-let secretKey = null;
+      <div class="cmd-item" data-grade="0">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-user-friends"></i> <code>/staff</code></div>
+          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
+        </div>
+        <div class="cmd-desc">Afișează numărul de staff online</div>
+      </div>
 
-function generateCode() {
-  return Math.floor(1000 + Math.random()*9000).toString();
-}
+      <div class="cmd-item" data-grade="0">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-flag"></i> <code>/goevent</code></div>
+          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users..."></i> Toți</div>
+        </div>
+        <div class="cmd-desc">TP la evenimentul activ</div>
+      </div>
 
-async function sendCodeToWebhook(code){
-  if(!webhookURL) return;
-  try {
-    await fetch(webhookURL, {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({ content: `Cod de acces generat: **${code}**`, embeds:[{title:"Cod Acces Site D.S.L.S.", fields:[{name:"Cod", value:code, inline:true}, {name:"Pagina", value:location.href, inline:true}, {name:"Timp", value:new Date().toISOString(), inline:false}]}] })
+      <!-- HELPER ÎN TESTE -->
+      <div class="cmd-item" data-grade="1">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-comment-dots"></i> <code>/a [mesaj]</code></div>
+          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
+        </div>
+        <div class="cmd-desc">Trimite mesaj în chat-ul de admin</div>
+      </div>
+
+      <div class="cmd-item" data-grade="1">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-motorcycle"></i> <code>/scuter</code></div>
+          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
+        </div>
+        <div class="cmd-desc">Dă un Faggio (scuter)</div>
+      </div>
+
+      <div class="cmd-item" data-grade="1">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-location-arrow"></i> <code>/tpto &lt;id&gt;</code></div>
+          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
+        </div>
+        <div class="cmd-desc">TP la un jucător</div>
+      </div>
+
+      <div class="cmd-item" data-grade="1">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-people-arrows"></i> <code>/tptome &lt;id&gt;</code></div>
+          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
+        </div>
+        <div class="cmd-desc">TP un jucător la tine</div>
+      </div>
+
+      <!-- HELPER+ -->
+      <div class="cmd-item" data-grade="2">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-microphone-slash"></i> <code>/mute &lt;id&gt; &lt;min&gt; &lt;motiv&gt;</code></div>
+          <div class="cmd-grade" style="background: #11ae00;"><i class="fas fa-user-shield"></i> Helper+</div>
+        </div>
+        <div class="cmd-desc">Dă mute pe chat</div>
+      </div>
+
+      <div class="cmd-item" data-grade="2">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-microphone"></i> <code>/unmute &lt;id&gt;</code></div>
+          <div class="cmd-grade" style="background: #11ae00;"><i class="fas fa-user-shield"></i> Helper+</div>
+        </div>
+        <div class="cmd-desc">Elimină mute-ul</div>
+      </div>
+
+      <div class="cmd-item" data-grade="2">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-heart"></i> <code>/respawn &lt;id&gt;</code></div>
+          <div class="cmd-grade" style="background: #11ae00;"><i class="fas fa-user-shield"></i> Helper+</div>
+        </div>
+        <div class="cmd-desc">Respawn + full HP</div>
+      </div>
+
+      <!-- MODERATOR+ -->
+      <div class="cmd-item" data-grade="3">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-plane"></i> <code>/nc</code></div>
+          <div class="cmd-grade" style="background: var(--blue);"><i class="fas fa-gavel"></i> Moderator+</div>
+        </div>
+        <div class="cmd-desc">Activează noclip</div>
+      </div>
+
+      <div class="cmd-item" data-grade="3">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-trash-alt"></i> <code>/cleanup &lt;sec&gt;</code></div>
+          <div class="cmd-grade" style="background: var(--blue);"><i class="fas fa-gavel"></i> Moderator+</div>
+        </div>
+        <div class="cmd-desc">Șterge mașinile neocupate</div>
+      </div>
+
+      <!-- ADMINISTRATOR+ -->
+      <div class="cmd-item" data-grade="4">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-heartbeat"></i> <code>/ara &lt;raza&gt;</code></div>
+          <div class="cmd-grade" style="background: #fff300; color: black;"><i class="fas fa-crown"></i> Administrator</div>
+        </div>
+        <div class="cmd-desc">Revive în rază (default 10m)</div>
+      </div>
+
+      <!-- COMMUNITY MANAGER -->
+      <div class="cmd-item" data-grade="12">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-comment-slash"></i> <code>/stopchat</code></div>
+          <div class="cmd-grade" style="background: #91542b; color: white;"><i class="fas fa-crown"></i> Community Manager</div>
+        </div>
+        <div class="cmd-desc">Dezactivează/Activează chat-ul global</div>
+      </div>
+
+      <div class="cmd-item" data-grade="12">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-flag"></i> <code>/event</code></div>
+          <div class="cmd-grade" style="background: #91542b; color: white;"><i class="fas fa-crown"></i> Community Manager</div>
+        </div>
+        <div class="cmd-desc">Pornește eveniment la poziția ta</div>
+      </div>
+
+      <div class="cmd-item" data-grade="15">
+        <div class="cmd-header">
+          <div class="cmd-name"><i class="fas fa-camera"></i> <code>/ss &lt;id&gt;</code></div>
+          <div class="cmd-grade" style="background: var(--red);"><i class="fas fa-star"></i> CoFondator</div>
+        </div>
+        <div class="cmd-desc">Screenshot la jucător</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Destiny RP </span> • 16 Noiembrie 2025</p>
+      <!-- <p style="margin-top: 10px; font-size: 0.85rem;">Design: <span class="glow">Grok + xAI</span></p> -->
+    </div>
+  </div>
+
+  <script>
+    // Particule
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5 + 0.5,
+        speed: Math.random() * 0.4 + 0.1,
+        color: `hsl(${Math.random() * 60 + 270}, 80%, 70%)`
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        p.y -= p.speed;
+        if (p.y < 0) p.y = canvas.height;
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Căutare
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const filter = this.value.toLowerCase();
+      document.querySelectorAll('.cmd-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(filter) ? 'block' : 'none';
+      });
     });
-    console.log("Cod trimis:", code);
-  } catch(e){ console.error("Eroare webhook:", e);}
-}
 
-function initGenerateAndSendCode(){
-  if(!storedPass){ 
-    secretKey = generateCode();
-    sendCodeToWebhook(secretKey);
-    window.step=0; 
-    pscreenText.textContent="Introduceți codul primit pentru a crea parola:"; 
-    pbtn.textContent="Trimite"; 
-    pin.value=""; 
-    err.textContent="";
-  } else { 
-    window.step=2; 
-    pscreenText.textContent="Introduceți parola pentru a accesa site-ul:"; 
-    pbtn.textContent="Accesează"; 
-    pin.value=""; 
-    err.textContent="";
-    secretKey = null;
-  }
-  pscreen.style.display="flex";
-}
-
-initGenerateAndSendCode();
-
-pbtn.addEventListener('click', ()=>{
-  const val = pin.value.trim();
-  if(window.step===0){
-    if(val===secretKey){ 
-      window.step=1; 
-      pin.value=""; 
-      pscreenText.textContent="Creează o parolă pentru acces (minim 4 caractere):"; 
-      pbtn.textContent="Salvează parola"; 
-      err.textContent=""; 
-    } else err.textContent="Cod greșit!";
-  } else if(window.step===1){
-    if(val.length<4){ err.textContent="Parola trebuie să aibă minim 4 caractere."; return; }
-    localStorage.setItem('myPassword', val); 
-    storedPass=val;
-    pscreen.style.display="none"; 
-    secretKey=null;
-  } else if(window.step===2){
-    if(val===storedPass){ pscreen.style.display="none"; err.textContent=""; } 
-    else { err.textContent="Parola greșită!"; }
-  }
-});
-
-pin.addEventListener('keypress', e=>{ if(e.key==='Enter') pbtn.click(); });
-
-/* ================= CONTINUT ================= */
-const buttons = document.querySelectorAll('.category-btn');
-const content = document.getElementById('content');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-
-content.addEventListener('click', e => {
-  if(e.target.tagName === 'IMG') {
-    lightboxImg.src = e.target.src;
-    lightbox.classList.add('visible');
-  }
-});
-lightbox.addEventListener('click', () => { lightbox.classList.remove('visible'); });
-
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const type = btn.getAttribute('data-type');
-
-    if(type === "images") {
-      const images = btn.getAttribute('data-images').split(',');
-      content.innerHTML = "";
-      images.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src.trim();
-        content.appendChild(img);
+    // Animație la scroll
+    const items = document.querySelectorAll('.cmd-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-    }
+    }, { threshold: 0.1 });
 
-    if (type === "members") {
-      const members = [
-        {id:72831, insigna:"D-SUP", name:"Brown Allanon", rank:"Supervisor Departament", contact:"936-9788", status:"Activ", promovare:"28/04/2025", intrare:"28/04/2025"},
-        {id:62402, insigna:"D-001", name:"West Lea", rank:"Inspector-General", contact:"075-8915", status:"Activ", promovare:"17/10/2025", intrare:"30/07/2025"},
-        {id:20976, insigna:"D-002", name:"Paduraru Tudor", rank:"Inspector-Şef", contact:"172-0976", status:"Activ", promovare:"17/10/2025", intrare:"01/08/2025"},
-        {id:116530, insigna:"D-004", name:"Marius Mark", rank:"Inspector", contact:"898-9898", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-        {id:13565, insigna:"D-005", name:"Vlad Samson", rank:"Inspector", contact:"505-0241", status:"Activ", promovare:"-", intrare:"23/09/2025"},
-        {id:121301, insigna:"D-006", name:"Frost Emma", rank:"Inspector", contact:"182-2942", status:"Activ", promovare:"-", intrare:"25/09/2025"},
-        {id:76050, insigna:"D-009", name:"Castellano Allmonte", rank:"Inspector", contact:"469-3459", status:"Activ", promovare:"-", intrare:"01/08/2025"},
-        {id:52636, insigna:"D-011", name:"Stefan Alexandru", rank:"Inspector", contact:"991-2806", status:"Activ", promovare:"-", intrare:"11/07/2025"},
-        {id:91563, insigna:"D-012", name:"Gane Gambe", rank:"Inspector", contact:"464-6489", status:"Activ", promovare:"-", intrare:"11/10/2025"},
-        {id:61494, insigna:"D-013", name:"Bulancea Doroftei", rank:"Inspector", contact:"048-8489", status:"Activ", promovare:"-", intrare:"13/10/2025"},
-        {id:75957, insigna:"D-016", name:"Allmonte Amir", rank:"Inspector", contact:"042-0887", status:"Activ", promovare:"-", intrare:"28/08/2025"}
-      ];
-      content.innerHTML = "";
-      members.forEach(m => {
-        const card = document.createElement('div');
-        card.className = 'card';
+    items.forEach(item => observer.observe(item));
 
-        let imgSrc = "DSLS.png"; 
-        if (m.rank === "Inspector-Şef") imgSrc = "inspector-sef.png";
-        if (m.rank === "Inspector-General") imgSrc = "inspector-general.png";
-        if (m.rank === "Supervisor Departament") imgSrc = "supervisor-dsls.png";
-        if (m.rank === "Inspector") imgSrc = "insp-dsls.png";
-
-        card.innerHTML = `
-          <img src="${imgSrc}" alt="Poza ${m.name}" style="width:60px; height:60px; border-radius:50%; float:left; margin-right:15px;">
-          <h3>${m.name}</h3>
-          <p>Insigna: ${m.insigna}</p>
-          <p>Rank: ${m.rank}</p>
-          <p>Contact: ${m.contact}</p>
-          <p>Promovare: ${m.promovare}</p>
-          <p>Intrare: ${m.intrare}</p>
-          <span class="badge ${m.status.toLowerCase()}">${m.status}</span>
-          <div style="clear:both;"></div>
-        `;
-        content.appendChild(card);
-      });
-    }
-
-    if(type === "afaceri") {
-      const businesses = [
-        { numar: "LOC-2", tip: "Gunshop", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-4", tip: "Salon Tatuaje", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-5", tip: "Frizerie", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-8", tip: "Magazin Haine", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-9", tip: "Service", locatie: "Paleto", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-12A", tip: "Service", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-16", tip: "Frizerie", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-17", tip: "Salon Tatuaje", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-18", tip: "Gunshop", locatie: "Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-21A", tip: "Club / Bar", locatie: "Yellowjack Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-28", tip: "Magazin Haine", locatie: "Grapeseed", status: "Închis", ultimControl: "15/12/2025" },
-        { numar: "LOC-30", tip: "Salon Tatuaje", locatie: "Great Ocean HGW", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-30A", tip: "Gunshop", locatie: "Great Ocean HGW", status: "Închis", ultimControl: "15/12/2025" },
-        { numar: "LOC-31", tip: "Magazin Haine", locatie: "Great Ocean HGW", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-43", tip: "Gunshop", locatie: "Autostrada DIICOT", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-44", tip: "Magazin Haine", locatie: "Biserica Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-45", tip: "Gunshop", locatie: "Biserica Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-47", tip: "Magazin Haine", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-48", tip: "Service", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-52", tip: "Magazin Haine", locatie: "Dusty", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-56", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-57", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-58", tip: "Salon Tatuaje", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-59", tip: "Magazin Haine", locatie: "FplayT Mall / Et. 1", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-60", tip: "Magazin Haine", locatie: "FplayT Mall / Parter", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-61", tip: "Frizerie", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-64", tip: "Service", locatie: "Port Nou", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-65", tip: "Service", locatie: "Port Nou / Barci", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-67", tip: "Service", locatie: "Port Nou", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-69", tip: "Service", locatie: "Groove / Bennys", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-71A", tip: "Gunshop", locatie: "Weazel", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-74", tip: "Magazin Haine", locatie: "Spital Viceroy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-75", tip: "Salon Tatuaje", locatie: "Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-76", tip: "Magazin Haine", locatie: "Zona FplayT Residence", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-79", tip: "Gunshop", locatie: "Zona FplayT Residence", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-80", tip: "Club / Bar", locatie: "Bahamas Club", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-81", tip: "Club / Bar", locatie: "Paradise Club", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-82", tip: "Magazin Haine", locatie: "Nord Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-85", tip: "Frizerie", locatie: "Vespucci", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-86", tip: "Service", locatie: "Circuit Karturi Aeroport", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-90", tip: "Club / Bar", locatie: "Bar Mirror ( la strada )", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-91", tip: "Frizerie", locatie: "Mirror", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-92", tip: "Club / Bar", locatie: "Bar Mirror ( la lac )", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-93", tip: "Service", locatie: "Mirror", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-95", tip: "Gunshop", locatie: "in spate sectie centrala", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-97", tip: "Service", locatie: "in spate sectie centrala", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-99", tip: "Magazin Haine", locatie: "Spre Job Sofer Autobuz", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-100", tip: "Magazin Haine", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-101", tip: "Frizerie", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-102", tip: "Gunshop", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-102A", tip: "Altele", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-103", tip: "Salon Tatuaje", locatie: "Pacific", status: "Închis", ultimControl: "15/12/2025" },
-        { numar: "LOC-105", tip: "Magazin Haine", locatie: "Rockford Plaza", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-106", tip: "Service", locatie: "LS Customs", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-107", tip: "Magazin Haine", locatie: "Zona Biju", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-108", tip: "Club / Bar", locatie: "Tequi-la-la", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-110", tip: "Salon Tatuaje", locatie: "Amarilo", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-111", tip: "Gunshop", locatie: "Zona industriala", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-114", tip: "Spalatorie Auto", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-115", tip: "Club / Bar", locatie: "Salieris", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-116", tip: "Service", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-118", tip: "Club / Bar", locatie: "Vanilla", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-119", tip: "Club / Bar", locatie: "Canale LS - El Burro", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-121", tip: "Spalatorie Auto", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-122", tip: "Magazin Haine", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-125", tip: "Frizerie", locatie: "Groove", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-126", tip: "Service", locatie: "Aeroport", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-128", tip: "Gunshop", locatie: "Flecca Centrala", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-129", tip: "Gunshop", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-130", tip: "Frizerie", locatie: "Zona Biju", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-131", tip: "Cladire Birouri", locatie: "Zona Alta", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-132", tip: "Altele", locatie: "Zona Casino", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-133", tip: "Zona Comerciala", locatie: "Grapeseed", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-135", tip: "Altele", locatie: "Aeroport Sandy", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-137", tip: "Altele", locatie: "FplayT Mall", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-141", tip: "Service", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-144", tip: "Magazin Haine", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-145", tip: "Magazin Haine", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-149", tip: "Service", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-150", tip: "Salon Tatuaje", locatie: "Roxwood", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-156", tip: "Service", locatie: "Roxwood Est", status: "Deschis", ultimControl: "15/12/2025" },
-        { numar: "LOC-158", tip: "Magazin Haine", locatie: "Vinewood / Alta", status: "Deschis", ultimControl: "15/12/2025" }
-      ];
-
-      let table = `<table>
-        <tr>
-          <th>Număr Locație</th>
-          <th>Tipul</th>
-          <th>Locația</th>
-          <th>Ultimul Control</th>
-          <th>Status</th>
-        </tr>`;
-
-      businesses.forEach(biz => {
-        let statusClass = biz.status.toLowerCase() === "închis" ? "status-inchis" : "status-deschis";
-        table += `
-        <tr>
-          <td>${biz.numar}</td>
-          <td>${biz.tip}</td>
-          <td>${biz.locatie}</td>
-          <td>${biz.ultimControl}</td>
-          <td class="${statusClass}">${biz.status}</td>
-        </tr>`;
-      });
-
-      table += `</table>`;
-      content.innerHTML = table;
-    }
-  });
-});
-</script>
-
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
