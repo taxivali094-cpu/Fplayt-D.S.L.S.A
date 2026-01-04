@@ -1,468 +1,268 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Comenzi Destiny RP | Graduri</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    :root {
-      --purple: #9d4edd;
-      --purple-dark: #7b2cbf;
-      --purple-glow: #c689ff;
-      --bg: #0f0a1a;
-      --card: #1a0f30;
-      --text: #e0d4ff;
-      --text-light: #b8a8e0;
-      --accent: #ff6bff;
-      --green: #2cff00;
-      --blue: #2d58ce;
-      --yellow: #f3a003;
-      --orange: #ff4d00;
-      --red: #890000;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arme Fplayt</title>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      min-height: 100vh;
-      padding: 20px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    /* Fundal particule */
-    #particles {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -1;
-    }
+<style>
+:root {
+  --bg:#020617;
+  --card:#0f172a;
+  --blue:#38bdf8;
+  --text:#e5e7eb;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, rgba(157, 78, 221, 0.15), rgba(123, 44, 191, 0.05));
-      border-radius: 20px;
-      margin-bottom: 40px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(157, 78, 221, 0.3);
-    }
+body {
+  font-family:'Roboto', sans-serif;
+  background: radial-gradient(circle at top, #020617, #000);
+  color:var(--text);
+  padding:30px 16px;
+}
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      background: linear-gradient(90deg, #9d4edd, #ff6bff, #9d4edd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 25px rgba(157, 78, 221, 0.7);
-      margin-bottom: 12px;
-    }
+.container { max-width:1400px; margin:auto; }
 
-    .subtitle {
-      color: var(--text-light);
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
+h1 {
+  font-family:'Orbitron', sans-serif;
+  font-size:2.4rem;
+  text-align:center;
+  background:linear-gradient(90deg,#38bdf8,#0ea5e9,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    .search-container {
-      position: relative;
-      margin: 30px 0;
-    }
+.subtitle {
+  text-align:center;
+  color:#94a3b8;
+  margin-bottom:40px;
+}
 
-    #searchInput {
-      width: 100%;
-      padding: 18px 55px 18px 22px;
-      font-size: 1.1rem;
-      background: var(--card);
-      border: 2px solid transparent;
-      border-radius: 18px;
-      color: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      transition: all 0.4s ease;
-    }
+/* GRID */
+.weapons-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:22px;
+}
 
-    #searchInput:focus {
-      outline: none;
-      border-color: var(--purple);
-      box-shadow: 0 0 25px rgba(157, 78, 221, 0.6);
-      transform: scale(1.02);
-    }
+/* CARD – MAI ÎNALT */
+.weapon-card {
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid rgba(56,189,248,0.25);
+  box-shadow:0 12px 35px rgba(0,0,0,0.6);
+  min-height:460px;
+  display:flex;
+  flex-direction:column;
+}
 
-    .search-icon {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--purple-glow);
-      font-size: 1.4rem;
-      animation: pulse 2s infinite;
-    }
+/* IMAGINE */
+.weapon-img {
+  width:100%;
+  height:150px;
+  object-fit:contain;
+  background:#020617;
+  padding:12px;
+}
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.7; }
-      50% { opacity: 1; }
-    }
+/* CONTENT */
+.weapon-content {
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
 
-    .commands-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      padding: 10px 0;
-    }
+.weapon-title {
+  font-family:'Orbitron', sans-serif;
+  font-size:1.15rem;
+  color:var(--blue);
+  margin-bottom:10px;
+}
 
-    .cmd-item {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 20px;
-      border: 1px solid rgba(157, 78, 221, 0.2);
-      transition: all 0.4s ease;
-      opacity: 0;
-      transform: translateY(30px);
-      position: relative;
-      overflow: hidden;
-    }
+ul { list-style:none; }
 
-    .cmd-item::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.1), transparent);
-      transition: 0.6s;
-    }
+li {
+  display:flex;
+  justify-content:space-between;
+  font-size:0.88rem;
+  padding:5px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
 
-    .cmd-item:hover::before {
-      left: 100%;
-    }
+li:last-child { border-bottom:none; }
 
-    .cmd-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+strong { color:#22c55e; }
 
-    .cmd-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(157, 78, 221, 0.3);
-      border-color: var(--purple);
-    }
+/* BUTON ATAȘAMENTE */
+.attach-btn {
+  margin-top:auto;
+  background:rgba(56,189,248,0.18);
+  color:#38bdf8;
+  text-align:center;
+  padding:10px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
 
-    .cmd-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
+/* MODAL */
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,0.85);
+  backdrop-filter:blur(6px);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+}
 
-    .cmd-name {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.3rem;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.modal-box {
+  background:var(--card);
+  border-radius:20px;
+  padding:24px;
+  width:90%;
+  max-width:560px;
+  border:1px solid rgba(56,189,248,0.3);
+}
 
-    .cmd-name code {
-      background: rgba(157, 78, 221, 0.25);
-      padding: 4px 12px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      color: #ff6bff;
-      border: 1px solid rgba(157, 78, 221, 0.5);
-      font-weight: 500;
-    }
+.modal-title {
+  font-family:'Orbitron', sans-serif;
+  color:#38bdf8;
+  font-size:1.4rem;
+  margin-bottom:16px;
+  text-align:center;
+}
 
-    .cmd-grade {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-weight: 600;
-      background: rgba(157, 78, 221, 0.2);
-      color: white;
-      border: 1px solid var(--purple);
-    }
+.attachment-box { margin-bottom:16px; }
 
-    .cmd-grade i { font-size: 1rem; }
+.attachment-name {
+  color:#22d3ee;
+  margin-bottom:6px;
+  font-weight:500;
+}
 
-    .cmd-desc {
-      color: var(--text-light);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-top: 8px;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 50px 20px;
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-top: 60px;
-      border-top: 1px dashed rgba(157, 78, 221, 0.3);
-    }
-
-    .glow {
-      color: var(--purple-glow);
-      text-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.3rem; }
-      .cmd-name { font-size: 1.1rem; }
-      .cmd-name code { font-size: 0.8rem; padding: 3px 8px; }
-      .cmd-grade { font-size: 0.75rem; padding: 5px 10px; }
-    }
-  </style>
+.close-btn {
+  margin-top:18px;
+  background:#38bdf8;
+  color:#020617;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-  <canvas id="particles"></canvas>
+<div class="container">
+  <h1>Arme Fplayt</h1>
+  <div class="subtitle">Crafting</div>
+  <div class="weapons-grid" id="weaponsGrid"></div>
+</div>
 
-  <div class="container">
-    <header>
-      <h1>COMENZI</h1>
-      <p class="subtitle">Ordonate de la <span class="glow">cel mai mic grad</span> la <span class="glow">cel mai mare</span></p>
-    </header>
-
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Caută o comandă..." />
-      <i class="fas fa-search search-icon"></i>
-    </div>
-
-    <div class="commands-list" id="commandsList">
-      <!-- COMENZI TOȚI JUCĂTORII -->
-      <div class="cmd-item" data-grade="0">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-globe"></i> <code>/coords</code></div>
-          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
-        </div>
-        <div class="cmd-desc">Afișează coordonatele tale actuale (pentru copiere)</div>
-      </div>
-
-      <div class="cmd-item" data-grade="0">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-id-badge"></i> <code>/id [nume/id]</code></div>
-          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
-        </div>
-        <div class="cmd-desc">Afișează ID, ore jucate, facțiune, Virtual World și CPS</div>
-      </div>
-
-      <div class="cmd-item" data-grade="0">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-user-police-tie"></i> <code>/politie</code></div>
-          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
-        </div>
-        <div class="cmd-desc">Listează toți polițiștii online cu rank-ul</div>
-      </div>
-
-      <div class="cmd-item" data-grade="0">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-user-md"></i> <code>/medici</code></div>
-          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
-        </div>
-        <div class="cmd-desc">Listează toți medicii (Smurd) online cu rank-ul</div>
-      </div>
-
-      <div class="cmd-item" data-grade="0">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-user-friends"></i> <code>/staff</code></div>
-          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users"></i> Toți</div>
-        </div>
-        <div class="cmd-desc">Afișează numărul de staff online</div>
-      </div>
-
-      <div class="cmd-item" data-grade="0">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-flag"></i> <code>/goevent</code></div>
-          <div class="cmd-grade" style="background: var(--green);"><i class="fas fa-users..."></i> Toți</div>
-        </div>
-        <div class="cmd-desc">TP la evenimentul activ</div>
-      </div>
-
-      <!-- HELPER ÎN TESTE -->
-      <div class="cmd-item" data-grade="1">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-comment-dots"></i> <code>/a [mesaj]</code></div>
-          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
-        </div>
-        <div class="cmd-desc">Trimite mesaj în chat-ul de admin</div>
-      </div>
-
-      <div class="cmd-item" data-grade="1">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-motorcycle"></i> <code>/scuter</code></div>
-          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
-        </div>
-        <div class="cmd-desc">Dă un Faggio (scuter)</div>
-      </div>
-
-      <div class="cmd-item" data-grade="1">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-location-arrow"></i> <code>/tpto &lt;id&gt;</code></div>
-          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
-        </div>
-        <div class="cmd-desc">TP la un jucător</div>
-      </div>
-
-      <div class="cmd-item" data-grade="1">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-people-arrows"></i> <code>/tptome &lt;id&gt;</code></div>
-          <div class="cmd-grade" style="background: #2cff00; color: black;"><i class="fas fa-user-graduate"></i> Helper în Teste</div>
-        </div>
-        <div class="cmd-desc">TP un jucător la tine</div>
-      </div>
-
-      <!-- HELPER+ -->
-      <div class="cmd-item" data-grade="2">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-microphone-slash"></i> <code>/mute &lt;id&gt; &lt;min&gt; &lt;motiv&gt;</code></div>
-          <div class="cmd-grade" style="background: #11ae00;"><i class="fas fa-user-shield"></i> Helper+</div>
-        </div>
-        <div class="cmd-desc">Dă mute pe chat</div>
-      </div>
-
-      <div class="cmd-item" data-grade="2">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-microphone"></i> <code>/unmute &lt;id&gt;</code></div>
-          <div class="cmd-grade" style="background: #11ae00;"><i class="fas fa-user-shield"></i> Helper+</div>
-        </div>
-        <div class="cmd-desc">Elimină mute-ul</div>
-      </div>
-
-      <div class="cmd-item" data-grade="2">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-heart"></i> <code>/respawn &lt;id&gt;</code></div>
-          <div class="cmd-grade" style="background: #11ae00;"><i class="fas fa-user-shield"></i> Helper+</div>
-        </div>
-        <div class="cmd-desc">Respawn + full HP</div>
-      </div>
-
-      <!-- MODERATOR+ -->
-      <div class="cmd-item" data-grade="3">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-plane"></i> <code>/nc</code></div>
-          <div class="cmd-grade" style="background: var(--blue);"><i class="fas fa-gavel"></i> Moderator+</div>
-        </div>
-        <div class="cmd-desc">Activează noclip</div>
-      </div>
-
-      <div class="cmd-item" data-grade="3">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-trash-alt"></i> <code>/cleanup &lt;sec&gt;</code></div>
-          <div class="cmd-grade" style="background: var(--blue);"><i class="fas fa-gavel"></i> Moderator+</div>
-        </div>
-        <div class="cmd-desc">Șterge mașinile neocupate</div>
-      </div>
-
-      <!-- ADMINISTRATOR+ -->
-      <div class="cmd-item" data-grade="4">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-heartbeat"></i> <code>/ara &lt;raza&gt;</code></div>
-          <div class="cmd-grade" style="background: #fff300; color: black;"><i class="fas fa-crown"></i> Administrator</div>
-        </div>
-        <div class="cmd-desc">Revive în rază (default 10m)</div>
-      </div>
-
-      <!-- COMMUNITY MANAGER -->
-      <div class="cmd-item" data-grade="12">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-comment-slash"></i> <code>/stopchat</code></div>
-          <div class="cmd-grade" style="background: #91542b; color: white;"><i class="fas fa-crown"></i> Community Manager</div>
-        </div>
-        <div class="cmd-desc">Dezactivează/Activează chat-ul global</div>
-      </div>
-
-      <div class="cmd-item" data-grade="12">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-flag"></i> <code>/event</code></div>
-          <div class="cmd-grade" style="background: #91542b; color: white;"><i class="fas fa-crown"></i> Community Manager</div>
-        </div>
-        <div class="cmd-desc">Pornește eveniment la poziția ta</div>
-      </div>
-
-      <div class="cmd-item" data-grade="15">
-        <div class="cmd-header">
-          <div class="cmd-name"><i class="fas fa-camera"></i> <code>/ss &lt;id&gt;</code></div>
-          <div class="cmd-grade" style="background: var(--red);"><i class="fas fa-star"></i> CoFondator</div>
-        </div>
-        <div class="cmd-desc">Screenshot la jucător</div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <p>Destiny RP </span> • 16 Noiembrie 2025</p>
-      <!-- <p style="margin-top: 10px; font-size: 0.85rem;">Design: <span class="glow">Grok + xAI</span></p> -->
-    </div>
+<!-- MODAL ATAȘAMENTE -->
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-title" id="modalTitle"></div>
+    <div id="modalContent"></div>
+    <div class="close-btn" onclick="hideModal()">Închide</div>
   </div>
+</div>
 
-  <script>
-    // Particule
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+<script>
+const weapons = [
+  {name:"Pistol",image:"https://files.catbox.moe/clxcfk.png",
+  materials:{"Otel":12,"Suruburi":80,"Arc Metalic":1,"Polimer":20},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Amortizor":{"Otel":2,"Suruburi":5,"Polimer":2},
+    "Incarcator":{"Otel":1,"Suruburi":5,"Polimer":1,"Arc Metalic":1}
+  }},
+  {name:"Combat Pistol",image:"https://files.catbox.moe/crwpvt.png",
+  materials:{"Otel":13,"Suruburi":85,"Polimer":18},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Amortizor":{"Otel":2,"Suruburi":5,"Polimer":2},
+    "Incarcator":{"Otel":1,"Suruburi":5,"Polimer":1,"Arc Metalic":1}
+  }},
+  {name:"Pistol MK2",image:"https://files.catbox.moe/548wks.png",
+  materials:{"Otel":14,"Suruburi":91,"Arc Metalic":1,"Polimer":22},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Scope":{"Otel":2,"Suruburi":10,"Polimer":2,"Lupa":1},
+    "Amortizor":{"Otel":2,"Suruburi":5,"Polimer":2},
+    "Incarcator":{"Otel":1,"Suruburi":5,"Polimer":1,"Arc Metalic":1}
+  }},
+  {name:"Micro SMG",image:"https://files.catbox.moe/5tzklm.png",
+  materials:{"Otel":24,"Suruburi":95,"Arc Metalic":1,"Polimer":42,"Teava Metalica":1},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Scope":{"Otel":2,"Suruburi":10,"Polimer":2,"Lupa":1},
+    "Amortizor":{"Otel":3,"Suruburi":5,"Polimer":3}
+  }},
+  {name:"SMG",image:"https://files.catbox.moe/lns4n2.png",
+  materials:{"Otel":23,"Suruburi":105,"Arc Metalic":1,"Polimer":48,"Teava Metalica":1},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Scope":{"Otel":2,"Suruburi":10,"Polimer":2,"Lupa":1},
+    "Amortizor":{"Otel":3,"Suruburi":5,"Polimer":3}
+  }},
+  {name:"Assault Rifle",image:"https://files.catbox.moe/fevjv6.png",
+  materials:{"Otel":28,"Suruburi":135,"Arc Metalic":2,"Polimer":68,"Bucată de Lemn":1,"Teava Metalica":1},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Scope":{"Otel":2,"Suruburi":10,"Polimer":2,"Lupa":1},
+    "Grip":{"Otel":1,"Suruburi":5,"Polimer":1},
+    "Amortizor":{"Otel":3,"Suruburi":5,"Polimer":3}
+  }},
+  {name:"Advanced Rifle",image:"https://files.catbox.moe/khdobt.png",
+  materials:{"Otel":30,"Suruburi":145,"Arc Metalic":2,"Polimer":78,"Teava Metalica":1},
+  attachments:{
+    "Lanterna":{"Otel":1,"Suruburi":5,"Polimer":1,"Bec":1,"Lupa":1},
+    "Amortizor":{"Otel":3,"Suruburi":5,"Polimer":3}
+  }}
+];
 
-    const particles = [];
-    for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5 + 0.5,
-        speed: Math.random() * 0.4 + 0.1,
-        color: `hsl(${Math.random() * 60 + 270}, 80%, 70%)`
-      });
-    }
+const grid=document.getElementById("weaponsGrid");
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-        p.y -= p.speed;
-        if (p.y < 0) p.y = canvas.height;
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
+weapons.forEach(w=>{
+  const card=document.createElement("div");
+  card.className="weapon-card";
+  card.innerHTML=`
+    <img src="${w.image}" class="weapon-img">
+    <div class="weapon-content">
+      <div class="weapon-title">${w.name}</div>
+      <ul>
+        ${Object.entries(w.materials).map(([m,q])=>`<li><span>${m}</span><strong>${q}</strong></li>`).join("")}
+      </ul>
+      <div class="attach-btn" onclick='showAttachments(${JSON.stringify(w.attachments)}, "${w.name}")'>Atașamente</div>
+    </div>`;
+  grid.appendChild(card);
+});
 
-    // Căutare
-    document.getElementById('searchInput').addEventListener('input', function() {
-      const filter = this.value.toLowerCase();
-      document.querySelectorAll('.cmd-item').forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(filter) ? 'block' : 'none';
-      });
-    });
+function showAttachments(att,name){
+  modalTitle.innerText = name + " – Atașamente";
+  modalContent.innerHTML = Object.entries(att).map(([a,m])=>`
+    <div class="attachment-box">
+      <div class="attachment-name">${a}</div>
+      <ul>
+        ${Object.entries(m).map(([mm,qq])=>`<li><span>${mm}</span><strong>${qq}</strong></li>`).join("")}
+      </ul>
+    </div>
+  `).join("");
+  modal.style.display="flex";
+}
 
-    // Animație la scroll
-    const items = document.querySelectorAll('.cmd-item');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+function hideModal(){ modal.style.display="none"; }
+function closeModal(e){ if(e.target.classList.contains("modal")) hideModal(); }
+</script>
 
-    items.forEach(item => observer.observe(item));
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
 </body>
 </html>
